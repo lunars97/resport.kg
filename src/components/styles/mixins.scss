@@ -1,0 +1,9 @@
+@use './abstracts/' as *;
+@mixin buttonStyle {
+    width: 100px;
+    height: 30px;
+    background-color: cadetblue;
+    border: none;
+    border-radius: 5px;
+    font-size: $cardFont;
+}

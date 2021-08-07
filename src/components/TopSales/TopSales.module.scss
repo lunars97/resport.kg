@@ -1,0 +1,22 @@
+.main_wrapper {
+    width: 100%;
+    position: relative;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__inner {
+        margin: 0 auto;
+        width: 80%;
+
+        &__slider_card {
+            margin: 0 10px;
+            width: 250px;
+            height: 350px;
+            img {
+                width: 250px;
+                height: 350px;
+            }
+        }
+    }
+}

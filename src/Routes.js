@@ -1,14 +1,16 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import BodySection from "./BodySection/BodySection";
-import Navbar from "./Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import BodySection from "./components/BodySection/BodySection";
+import Navbar from "./components/Navbar/Navbar";
 
 const Routes = () => {
     return (
-        <BrowserRouter>
-            <Route exact path="/" component={Navbar} />
-            <Route exact path="/" component={BodySection} />
-        </BrowserRouter>
+        <Router>
+            <Navbar />
+            <Switch>
+                <Route exact path="/" component={BodySection} />
+            </Switch>
+        </Router>
     );
 };
 
