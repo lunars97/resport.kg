@@ -1,0 +1,17 @@
+.btn_container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    span {
+        background-color: rgb(168, 113, 50);
+        width: 2rem;
+        height: 1.2rem;
+        color: #fff;
+        border: 1px solid rgb(168, 113, 50);
+        text-align: center;
+        cursor: pointer;
+        margin: 1rem 0 2rem 0.3rem;
+    }
+}

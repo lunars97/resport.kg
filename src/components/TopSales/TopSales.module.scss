@@ -1,21 +1,72 @@
-.main_wrapper {
-    width: 100%;
-    position: relative;
-    margin-top: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__inner {
-        margin: 0 auto;
-        width: 80%;
+@import "../styles/mixins.scss";
+.main_card_wrap {
+    margin: 0 auto;
+    padding-top: 3rem;
+    width: 80%;
 
-        &__slider_card {
-            margin: 0 10px;
-            width: 250px;
-            height: 350px;
-            img {
-                width: 250px;
-                height: 350px;
+    @include fontTextStyle;
+}
+
+.inner_card {
+    width: 14rem;
+    margin: 1.3rem 0;
+    &__img_frame {
+        width: 14rem;
+        img {
+            width: 80%;
+        }
+    }
+    .price_box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 4px;
+        font-size: $cardFont;
+
+        .prevPrice {
+            text-decoration: line-through;
+            color: #7c7c7c;
+            margin-right: 19px;
+        }
+
+        .currentPrice {
+            color: #ab844a;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .discount {
+            color: #fff;
+            font-weight: 700;
+            padding: 2px 10px 2px 10px;
+            background: #ff6565;
+        }
+    }
+
+    .product_description {
+        .description_text span {
+            padding-right: 60px;
+            font-size: $cardFont;
+            font-weight: bold;
+            line-height: 30px;
+        }
+    }
+
+    .btn {
+        @include buttonStyle;
+    }
+
+    @media screen and (max-width: 570px) {
+        .main_cart_wrap {
+            margin: 0 auto 30px auto;
+            width: 48%;
+
+            .price_box {
+                font-size: 11px;
+            }
+
+            .cart_wrapper_main {
+                display: none;
             }
         }
     }

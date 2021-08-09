@@ -4,6 +4,13 @@ import "./Navbar.css";
 import logo from "../assets/images/logo.jpg";
 import HeroSection from "../HeroSection/HeroSection";
 const Navbar = () => {
+    // const productSection = useRef(null);
+    // const allProductsSection = () => {
+    //     window.scrollTo({
+    //         top: productSection.current.offsetTop,
+    //         behavior: "smooth",
+    //     });
+    // };
     return (
         <>
             <div className="header">
@@ -28,7 +35,7 @@ const Navbar = () => {
                                 <li className="nav-link">
                                     <Link
                                         className="link"
-                                        to="Home"
+                                        to="/"
                                         style={{
                                             textDecoration: "none",
                                             lineHeight: "3rem",
@@ -38,10 +45,15 @@ const Navbar = () => {
                                         Главная
                                     </Link>
                                 </li>
-                                <li className="nav-link">
+                                <li
+                                    className="nav-link"
+                                    onClick={() =>
+                                        window.location.replace("/#products")
+                                    }
+                                >
                                     <Link
                                         className="products link"
-                                        to="Products"
+                                        to="/#products"
                                         style={{
                                             textDecoration: "none",
                                             lineHeight: "3rem",
@@ -102,10 +114,15 @@ const Navbar = () => {
                                         </li>
                                     </div>
                                 </li>
-                                <li className="nav-link">
+                                <li
+                                    className="nav-link"
+                                    onClick={() =>
+                                        window.location.replace("/#contacts")
+                                    }
+                                >
                                     <Link
                                         className="link"
-                                        to="Contacts"
+                                        to="/#contacts"
                                         style={{
                                             textDecoration: "none",
                                             lineHeight: "3rem",

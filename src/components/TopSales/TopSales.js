@@ -1,16 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
 import classes from "./TopSales.module.scss";
-import topSales_img from "../assets/images/yellowDress.png";
+import dress from "../assets/images/yellowDress.png";
 const TopSales = () => {
     const settings = {
         infinite: true,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2500,
-        autoplaySpeed: 2500,
+        speed: 4500,
+        autoplaySpeed: 4500,
         cssEase: "linear",
+        dots: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -38,26 +39,109 @@ const TopSales = () => {
         ],
     };
     return (
-        <div className={classes.main_wrapper}>
-            <div className={classes.main_wrapper__inner}>
-                <Slider {...settings}>
-                    <div className={classes.main_wrapper__inner__slider_card}>
-                        <img src={topSales_img} alt="dress" />
+        <div className={classes.main_card_wrap}>
+            <Slider {...settings}>
+                <div className={classes.inner_card}>
+                    <div className={classes.inner_card__img_frame}>
+                        <img src={dress} alt="card_image" />
                     </div>
-                    <div className={classes.main_wrapper__inner__slider_card}>
-                        <img src={topSales_img} alt="dress" />
+                    <div className={classes.price_box}>
+                        <span className={classes.prevPrice}>12000 c.</span>
+                        <span className={classes.currentPrice}>12000 c.</span>
+                        <span className={classes.discount}>35%</span>
                     </div>
-                    <div className={classes.main_wrapper__inner__slider_card}>
-                        <img src={topSales_img} alt="dress" />
+                    <div className={classes.product_description}>
+                        <div className={classes.description_text}>
+                            <span>The Organic Cotton Clothes</span>
+                        </div>
+
+                        <div className={classes.size_description}>
+                            <span>Размер 46-54</span>
+                        </div>
                     </div>
-                    <div className={classes.main_wrapper__inner__slider_card}>
-                        <img src={topSales_img} alt="dress" />
+                    <button className={classes.btn}>Order</button>
+                </div>
+                <div className={classes.inner_card}>
+                    <div className={classes.inner_card__img_frame}>
+                        <img src={dress} alt="card_image" />
                     </div>
-                    <div className={classes.main_wrapper__inner__slider_card}>
-                        <img src={topSales_img} alt="dress" />
+                    <div className={classes.price_box}>
+                        <span className={classes.prevPrice}>12000 c.</span>
+                        <span className={classes.currentPrice}>12000 c.</span>
+                        <span className={classes.discount}>35%</span>
                     </div>
-                </Slider>
-            </div>
+                    <div className={classes.product_description}>
+                        <div className={classes.description_text}>
+                            <span>The Organic Cotton Clothes</span>
+                        </div>
+
+                        <div className={classes.size_description}>
+                            <span>Размер 46-54</span>
+                        </div>
+                    </div>
+                    <button className={classes.btn}>Order</button>
+                </div>
+                <div className={classes.inner_card}>
+                    <div className={classes.inner_card__img_frame}>
+                        <img src={dress} alt="card_image" />
+                    </div>
+                    <div className={classes.price_box}>
+                        <span className={classes.prevPrice}>12000 c.</span>
+                        <span className={classes.currentPrice}>12000 c.</span>
+                        <span className={classes.discount}>35%</span>
+                    </div>
+                    <div className={classes.product_description}>
+                        <div className={classes.description_text}>
+                            <span>The Organic Cotton Clothes</span>
+                        </div>
+
+                        <div className={classes.size_description}>
+                            <span>Размер 46-54</span>
+                        </div>
+                    </div>
+                    <button className={classes.btn}>Order</button>
+                </div>
+                <div className={classes.inner_card}>
+                    <div className={classes.inner_card__img_frame}>
+                        <img src={dress} alt="card_image" />
+                    </div>
+                    <div className={classes.price_box}>
+                        <span className={classes.prevPrice}>12000 c.</span>
+                        <span className={classes.currentPrice}>12000 c.</span>
+                        <span className={classes.discount}>35%</span>
+                    </div>
+                    <div className={classes.product_description}>
+                        <div className={classes.description_text}>
+                            <span>The Organic Cotton Clothes</span>
+                        </div>
+
+                        <div className={classes.size_description}>
+                            <span>Размер 46-54</span>
+                        </div>
+                    </div>
+                    <button className={classes.btn}>Order</button>
+                </div>
+                <div className={classes.inner_card}>
+                    <div className={classes.inner_card__img_frame}>
+                        <img src={dress} alt="card_image" />
+                    </div>
+                    <div className={classes.price_box}>
+                        <span className={classes.prevPrice}>12000 c.</span>
+                        <span className={classes.currentPrice}>12000 c.</span>
+                        <span className={classes.discount}>35%</span>
+                    </div>
+                    <div className={classes.product_description}>
+                        <div className={classes.description_text}>
+                            <span>The Organic Cotton Clothes</span>
+                        </div>
+
+                        <div className={classes.size_description}>
+                            <span>Размер 46-54</span>
+                        </div>
+                    </div>
+                    <button className={classes.btn}>Order</button>
+                </div>
+            </Slider>
         </div>
     );
 };

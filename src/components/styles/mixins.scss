@@ -1,9 +1,27 @@
-@use './abstracts/' as *;
+@import "./abstracts/index";
+
+$breakpoints: (
+    small: 350px,
+    medium: 700px,
+    large: 1200px,
+);
 @mixin buttonStyle {
-    width: 100px;
-    height: 30px;
-    background-color: cadetblue;
+    width: 11.5rem;
+    height: 2rem;
+    background-color: rgb(138, 185, 187);
     border: none;
     border-radius: 5px;
     font-size: $cardFont;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 0.5em;
+}
+@mixin fontTextStyle {
+    font-size: $cardFont;
+    font-family: $fontFamily;
+    font-weight: 400;
+}
+@mixin fontTitleStyle {
+    font-size: $titleFont;
+    font-weight: 400;
 }
