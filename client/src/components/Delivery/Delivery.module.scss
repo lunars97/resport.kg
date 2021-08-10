@@ -1,0 +1,73 @@
+@import "../styles/abstracts/index";
+@import "../styles/mixins.scss";
+.main_wrap {
+    width: 100%;
+    font-family: $headerFamily;
+    margin: 0 auto;
+    display: flex;
+    background: rgb(219, 242, 245);
+    clip-path: ellipse(90% 88% at 20% 66%);
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    &__inner {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        margin: 1rem 0;
+
+        @media screen and (max-width: 500px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 1rem;
+        }
+        @include breakpoint(medium) {
+            width: 100%;
+            margin: 0 1rem;
+        }
+        img {
+            width: 40rem;
+            border-radius: 1rem;
+
+            @media screen and (max-width: 500px) {
+                width: 100%;
+            }
+
+            @include breakpoint(medium) {
+                width: 20rem;
+            }
+            @include breakpoint(large) {
+                width: 20rem;
+            }
+        }
+        p {
+            margin-top: -5px;
+            font-size: 13px;
+        }
+
+        span {
+            text-align: center;
+            margin: 1rem;
+            padding-top: 5rem;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: 500;
+            @media screen and (max-width: 500px) {
+                padding-top: 0;
+                font-size: 24px;
+            }
+
+            @include breakpoint(medium) {
+                padding-top: 1.3rem;
+                font-size: 24px;
+                line-height: 40px;
+            }
+            @include breakpoint(large) {
+                padding-top: 1.3rem;
+                font-size: 24px;
+                line-height: 40px;
+            }
+        }
+    }
+}

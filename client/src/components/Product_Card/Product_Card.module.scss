@@ -1,0 +1,100 @@
+@import "../styles/mixins.scss";
+@import "../styles/abstracts/fonts";
+.main_card_wrap {
+    margin: 0 auto;
+    padding-top: 0.5rem;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include fontTextStyle;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+h1 {
+    padding-top: 1rem;
+    text-align: center;
+    font-family: $fontFamily;
+    font-size: 24px;
+}
+.inner_card {
+    width: 14rem;
+    margin: 1.3rem 0;
+    &__img_frame {
+        img {
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        width: 10.5rem;
+    }
+    .price_box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 4px;
+        font-size: $cardFont;
+
+        .prevPrice {
+            text-decoration: line-through;
+            color: #7c7c7c;
+            margin-right: 19px;
+            @media screen and (max-width: 500px) {
+                margin-right: 5px;
+            }
+        }
+
+        .currentPrice {
+            color: #ab844a;
+            font-weight: 700;
+            margin-right: 20px;
+            @media screen and (max-width: 500px) {
+                margin-right: 5px;
+            }
+        }
+
+        .discount {
+            color: #fff;
+            font-weight: 700;
+            padding: 2px 10px 2px 10px;
+            background: #ff6565;
+
+            @media screen and (max-width: 500px) {
+                padding: 2px 2px 2px 2px;
+                font-weight: 400;
+                font-size: 11px;
+            }
+        }
+    }
+
+    .product_description {
+        .description_text span {
+            padding-right: 60px;
+            font-size: $cardFont;
+            font-weight: bold;
+            line-height: 30px;
+        }
+    }
+
+    .btn {
+        width: 11.5rem;
+        @include buttonStyle;
+
+        &:hover {
+            color: black;
+        }
+
+        @include breakpoint(small) {
+            width: 8.5rem;
+        }
+
+        @include breakpoint(medium) {
+            width: 8.5rem;
+        }
+    }
+}

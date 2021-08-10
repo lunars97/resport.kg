@@ -1,0 +1,8 @@
+.components_wrapper {
+    margin: 0 auto;
+    width: 100%;
+
+    @media screen and (max-width: 500px) {
+        padding-top: 0;
+    }
+}

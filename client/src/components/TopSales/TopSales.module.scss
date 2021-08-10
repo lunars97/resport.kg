@@ -1,0 +1,113 @@
+@import "../styles/mixins.scss";
+@import "../styles/abstracts/fonts";
+.main_card_wrap {
+    margin: 0 auto;
+    width: 80%;
+    @include fontTextStyle;
+
+    h1 {
+        text-align: center;
+        font-family: $fontFamily;
+        font-size: 24px;
+    }
+    @include breakpoint(large) {
+        width: 90%;
+    }
+
+    @include breakpoint(small) {
+        width: 100%;
+    }
+    @include breakpoint(medium) {
+        width: 100%;
+    }
+}
+
+.inner_card {
+    width: 14rem;
+    margin: 1rem 0;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+    &__img_frame {
+        width: 14rem;
+        img {
+            width: 80%;
+        }
+        @media screen and (max-width: 700px) {
+            width: 10.5rem;
+        }
+    }
+    .price_box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 4px;
+        font-size: $cardFont;
+
+        .prevPrice {
+            text-decoration: line-through;
+            color: #7c7c7c;
+            margin-right: 19px;
+
+            @media screen and (max-width: 500px) {
+                margin-right: 5px;
+            }
+        }
+
+        .currentPrice {
+            color: #ab844a;
+            font-weight: 700;
+            margin-right: 20px;
+            @media screen and (max-width: 500px) {
+                margin-right: 5px;
+            }
+        }
+
+        .discount {
+            color: #fff;
+            font-weight: 700;
+            padding: 2px 10px 2px 10px;
+            background: #ff6565;
+            @media screen and (max-width: 500px) {
+                padding: 2px 2px 2px 2px;
+                font-weight: 400;
+                font-size: 11px;
+            }
+        }
+    }
+
+    .product_description {
+        .description_text span {
+            // padding-right: 60px;
+            font-size: $cardFont;
+            font-weight: bold;
+            line-height: 30px;
+
+            @media screen and (max-width: 500px) {
+                padding-right: 0;
+                font-size: 10px;
+                word-wrap: break-word;
+            }
+        }
+    }
+
+    .btn {
+        @include buttonStyle;
+        width: 11.5rem;
+        &:hover {
+            color: black;
+        }
+        @media screen and (max-width: 500px) {
+            width: 10.5rem;
+        }
+
+        @include breakpoint(small) {
+            width: 8.5rem;
+        }
+
+        @include breakpoint(medium) {
+            width: 8.5rem;
+        }
+    }
+}

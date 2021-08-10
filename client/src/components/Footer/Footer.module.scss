@@ -1,0 +1,59 @@
+@import "../styles/abstracts/fonts";
+.footer_wrapper {
+    background-color: #8db4a5;
+    width: 100%;
+    height: 11rem;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-family: $fontFamily;
+    &__inner {
+        padding: 2rem 0 0 0;
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__contacts {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 100%;
+            line-height: 27px;
+            &_header {
+                font-weight: bold;
+                font-size: 16px;
+            }
+            a {
+                text-decoration: none;
+                color: #000000;
+            }
+        }
+
+        &__social_media {
+            display: flex;
+            flex-flow: row-reverse;
+            padding-top: 0.5rem;
+            padding-bottom: 1rem;
+            margin: 0 auto;
+            width: 100%;
+            svg {
+                margin-left: 0.5rem;
+            }
+            a:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+    .copyright {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        span {
+            margin-top: 1rem;
+            font-size: 14px;
+        }
+    }
+}
