@@ -1,39 +1,76 @@
-@import "../styles/abstracts/index";
+@import "../../styles/abstracts/index";
+@import "../../styles/mixins";
 .detail_wrapper {
     width: 100%;
-    height: 100vh;
     margin: 0 auto;
     display: flex;
     font-family: $fontFamily;
     justify-content: center;
+    padding: 6rem 0;
     &__inner {
-        padding-top: 10rem;
-        width: 80%;
+        width: 70%;
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
+        @include breakpoint(small) {
+            width: 100%;
+            display: flex;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+        @include breakpoint(medium) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
         .img_wrapper {
             width: 100%;
             margin-right: 1rem;
+            @include breakpoint(medium) {
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                margin: 0 4rem;
+            }
         }
         .main_img_container {
-            width: 15rem;
-            height: 18rem;
+            width: 16.4rem;
+            // height: 18rem;
             img {
                 width: 100%;
+            }
+
+            @include breakpoint(medium) {
+                width: 17rem;
+            }
+            @include breakpoint(small) {
+                width: 10rem;
+                // height: 13rem;
             }
         }
         .small_img_wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             width: 15rem;
-            margin-top: 5rem;
+            margin-top: 0.5rem;
             .small_img_container {
-                width: 4rem;
-                height: 5rem;
+                width: 5rem;
+                margin: 0 0.3em;
+
                 img {
                     width: 100%;
                 }
+                @include breakpoint(medium) {
+                    width: 2.5rem;
+                }
+            }
+            @include breakpoint(small) {
+                width: 8rem;
+            }
+            @include breakpoint(medium) {
+                width: 17rem;
+                padding: 0 0.3rem;
             }
         }
         .description {
@@ -42,20 +79,52 @@
 
             &__inner {
                 margin-top: 1rem;
+                width: 100%;
+
                 span {
                     font-size: 16px;
+                    @include breakpoint(medium) {
+                        font-size: 14px;
+                    }
                 }
 
                 &__first_section {
                     display: flex;
+                    justify-content: flex-start;
                     margin-top: -0.3rem;
+                    @include breakpoint(medium) {
+                        display: flex;
+                        flex-direction: column;
+                    }
                     p {
-                        padding-right: 2rem;
                         font-size: 14px;
                         color: rgb(110, 110, 110);
+                        @include breakpoint(medium) {
+                            font-size: 12px;
+                        }
+                    }
+                    .category {
+                        margin-left: 1.3rem;
+                        @include breakpoint(medium) {
+                            margin-top: -0.3em;
+                            margin-left: 0;
+                        }
                     }
                 }
+                &_info {
+                    display: flex;
+                    justify-content: flex-start;
 
+                    &__size {
+                        margin-top: -1.2rem;
+                        font-size: 14px;
+                        color: rgb(110, 110, 110);
+
+                        @include breakpoint(medium) {
+                            // margin-right: 5rem;
+                        }
+                    }
+                }
                 &__colors {
                     display: flex;
                     justify-content: start;
@@ -69,6 +138,35 @@
                         border-radius: 50%;
                     }
                 }
+                .description_text {
+                    font-size: 14px;
+                    color: rgb(82, 79, 79);
+                    line-height: 22px;
+                    @include breakpoint(medium) {
+                        font-size: 12px;
+                    }
+                }
+                .manufactured {
+                    font-size: 14px;
+                    color: rgb(82, 79, 79);
+                    @include breakpoint(medium) {
+                        font-size: 12px;
+                    }
+                }
+                .btn {
+                    width: 15rem;
+                    @include buttonStyle;
+                    &:hover {
+                        transform: scale(1.1);
+                        color: black;
+                    }
+                    @include breakpoint(medium) {
+                        width: 12rem;
+                    }
+                }
+            }
+            @include breakpoint(medium) {
+                width: 90%;
             }
         }
     }

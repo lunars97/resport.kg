@@ -1,4 +1,5 @@
-@import "../styles/abstracts/fonts";
+@import "../../styles//abstracts/fonts";
+@import "../../styles/mixins";
 .footer_wrapper {
     background-color: #8db4a5;
     width: 100%;
@@ -8,6 +9,10 @@
     flex-direction: column;
     margin: 0 auto;
     font-family: $fontFamily;
+
+    @include breakpoint(small) {
+        height: 12rem;
+    }
     &__inner {
         padding: 2rem 0 0 0;
         width: 70%;
@@ -21,6 +26,9 @@
             margin: 0 auto;
             width: 100%;
             line-height: 27px;
+            @include breakpoint(small) {
+                font-size: 14px;
+            }
             &_header {
                 font-weight: bold;
                 font-size: 16px;
@@ -28,6 +36,9 @@
             a {
                 text-decoration: none;
                 color: #000000;
+                @include breakpoint(small) {
+                    font-size: 12px;
+                }
             }
         }
 
@@ -45,15 +56,24 @@
                 transform: scale(1.1);
             }
         }
+        @include breakpoint(small) {
+            width: 60%;
+        }
     }
     .copyright {
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: center;
         margin: 0 auto;
         span {
             margin-top: 1rem;
             font-size: 14px;
+            @include breakpoint(small) {
+                font-size: 11px;
+            }
+        }
+        @include breakpoint(small) {
+            width: 100%;
         }
     }
 }

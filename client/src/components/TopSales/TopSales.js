@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import classes from "./TopSales.module.scss";
-import dress from "../assets/images/yellowDress.png";
+import dress from "../../assets/images/yellowDress.png";
 const TopSales = () => {
     const settings = {
         infinite: true,

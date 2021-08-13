@@ -3,14 +3,18 @@ import classes from "../BodySection/BodySection.module.scss";
 import { TopSales, ProductCard } from "../index";
 import { PageBtn } from "../abstracts";
 import Delivery from "../Delivery/Delivery";
+import HeroSection from "../HeroSection/HeroSection";
 const BodySection = () => {
     return (
-        <div className={classes.components_wrapper}>
-            <TopSales />
-            <ProductCard />
-            <PageBtn />
-            <Delivery />
-        </div>
+        <>
+            <HeroSection />
+            <div className={classes.components_wrapper}>
+                <TopSales />
+                <ProductCard />
+                <PageBtn />
+                <Delivery />
+            </div>
+        </>
     );
 };
 

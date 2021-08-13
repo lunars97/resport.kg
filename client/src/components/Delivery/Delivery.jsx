@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Delivery.module.scss";
-import jog from "../assets/images/jog.jpg";
+import jog from "../../assets/images/jog.jpg";
 const Delivery = () => {
     return (
         <div className={classes.main_wrap}>

@@ -1,32 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../assets/images/logo.jpg";
-import HeroSection from "../HeroSection/HeroSection";
+import logo from "../../assets/images/logo.jpg";
 const Navbar = () => {
-    // const productSection = useRef(null);
-    // const allProductsSection = () => {
-    //     window.scrollTo({
-    //         top: productSection.current.offsetTop,
-    //         behavior: "smooth",
-    //     });
-    // };
     return (
         <>
             <div className="header">
                 <div className="container">
                     <input type="checkbox" name="" id="check" />
                     <div className="logo-container">
-                        <img
-                            src={logo}
-                            alt="resport_logo"
-                            style={{
-                                width: "50px",
-                                height: "50px",
-                                margin: "5px 0px",
-                                borderRadius: "50%",
-                            }}
-                        />
+                        <Link to="/">
+                            {" "}
+                            <img
+                                src={logo}
+                                alt="resport_logo"
+                                style={{
+                                    width: "50px",
+                                    height: "50px",
+                                    margin: "5px 0px",
+                                    borderRadius: "50%",
+                                }}
+                            />
+                        </Link>
                     </div>
 
                     <div className="nav-btn">
@@ -159,7 +154,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <HeroSection />
         </>
     );
 };

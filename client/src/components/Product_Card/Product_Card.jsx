@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Product_Card.module.scss";
-import dress from "../assets/images/yellowDress.png";
+import dress from "../../assets/images/yellowDress.png";
 const ProductCard = () => {
     return (
         <>
