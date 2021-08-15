@@ -1,9 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import BodySection from "./components/BodySection/BodySection";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import ProductDetail from "./components/ProductDetail/ProductDetail";
+import {
+    Navbar,
+    Footer,
+    BodySection,
+    ProductDetail,
+    Admin,
+} from "./components/index";
 
 const Routes = () => {
     return (
@@ -12,6 +15,7 @@ const Routes = () => {
             <Switch>
                 <Route exact path="/" component={BodySection} />
                 <Route exact path="/detail" component={ProductDetail} />
+                <Route exact path="/admin" component={Admin} />
             </Switch>
             <Footer />
         </Router>
