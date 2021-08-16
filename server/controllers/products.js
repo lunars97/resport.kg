@@ -43,3 +43,66 @@ export const getProductsBySearch = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 };
+export const getProduct = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const product = await AddProduct.findById(id);
+        res.status(200).json(product);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
+export const createProduct = async (req, res) => {
+    const product = req.body;
+    const newAddProduct = new AddProduct({ ...product });
+
+    try {
+        await newAddProduct.save();
+        res.status(201).json(newAddProduct);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+export const updateProduct = async (req, res) => {
+    const { id } = req.params;
+    const {
+        selectedFiles,
+        title,
+        article,
+        color,
+        size,
+        newPrice,
+        oldPrice,
+        description,
+        manufactured,
+    } = req.body;
+
+    const updatedProduct = {
+        selectedFiles,
+        title,
+        article,
+        color,
+        size,
+        newPrice,
+        oldPrice,
+        description,
+        manufactured,
+        _id: id,
+    };
+
+    await AddProduct.findByIdAndUpdate(id, updatedProduct, { new: true });
+
+    res.json(updateProduct);
+};
+
+export const deleteProduct = async (req, res) => {
+    const { id } = req.params;
+
+    await AddProduct.findByIdAndRemove(id);
+
+    res.json({ message: "Товар успешно удален" });
+};
+
+export default router;

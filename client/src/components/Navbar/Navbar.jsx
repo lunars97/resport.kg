@@ -27,19 +27,17 @@ const Navbar = () => {
                     <div className="nav-btn">
                         <div className="nav-links">
                             <ul>
-                                <li className="nav-link">
-                                    <Link
-                                        className="link"
-                                        to="/"
-                                        style={{
-                                            textDecoration: "none",
-                                            lineHeight: "3rem",
-                                            color: "black",
-                                        }}
-                                    >
-                                        Главная
-                                    </Link>
-                                </li>
+                                <Link
+                                    className="link"
+                                    to="/"
+                                    style={{
+                                        textDecoration: "none",
+                                        lineHeight: "3rem",
+                                        color: "black",
+                                    }}
+                                >
+                                    <li className="nav-link">Главная</li>
+                                </Link>
                                 <li
                                     className="nav-link"
                                     onClick={() =>
@@ -51,7 +49,7 @@ const Navbar = () => {
                                         to="/#products"
                                         style={{
                                             textDecoration: "none",
-                                            lineHeight: "3rem",
+                                            // lineHeight: "3rem",
                                             color: "black",
                                         }}
                                     >
@@ -61,37 +59,33 @@ const Navbar = () => {
                                             aria-hidden="true"
                                         ></i>
                                     </Link>
-                                    <div className="dropdown">
-                                        <li className="dropdown-link">
-                                            <Link
-                                                to="men"
-                                                style={{
-                                                    color: "black",
-                                                    padding: "0.5rem 1rem",
-                                                    fontSize: "0.9rem",
-                                                    textDecoration: "none",
-                                                }}
-                                            >
+                                    <ul className="dropdown">
+                                        <Link
+                                            to="men"
+                                            style={{
+                                                color: "black",
+                                                // padding: "0.5rem 1rem",
+                                                fontSize: "0.9rem",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            <li className="dropdown-link">
                                                 Мужская одежда
-                                            </Link>
-                                        </li>
-                                        <li className="dropdown-link">
-                                            <Link
-                                                to="women"
-                                                style={{
-                                                    color: "black",
-                                                    padding: "0.5rem 1rem",
-                                                    fontSize: "0.9rem",
-                                                    alignItems: "center",
-                                                    justifyContent:
-                                                        "space-between",
-                                                    textDecoration: "none",
-                                                }}
-                                            >
+                                            </li>
+                                        </Link>
+                                        <Link
+                                            to="women"
+                                            style={{
+                                                color: "black",
+                                                fontSize: "0.9rem",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            <li className="dropdown-link">
                                                 Женская одежда
-                                            </Link>
-                                        </li>
-                                        <li className="dropdown-link">
+                                            </li>
+                                        </Link>
+                                        {/* <li className="dropdown-link">
                                             <Link
                                                 to="shoes"
                                                 style={{
@@ -106,8 +100,8 @@ const Navbar = () => {
                                             >
                                                 Обувь
                                             </Link>
-                                        </li>
-                                    </div>
+                                        </li> */}
+                                    </ul>
                                 </li>
                                 <li
                                     className="nav-link"
