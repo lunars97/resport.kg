@@ -1,7 +1,6 @@
 import express from "express";
-import mongoose from "mongoose";
 
-import AddProduct from "../models/addProduct";
+import AddProduct from "../models/addProduct.js";
 
 const router = express.Router();
 
@@ -34,8 +33,9 @@ export const getProductsBySearch = async (req, res) => {
         const title = new RegExp(searchQuery, "i");
         const newPrice = new RegExp(searchQuery, "i");
         const color = new RegExp(searchQuery, "i");
+        const category = new RegExp(searchQuery, "i");
         const products = await AddProduct.find({
-            $or: [{ title, newPrice, color }],
+            $or: [{ title, newPrice, color, category }],
         });
 
         res.json({ data: products });

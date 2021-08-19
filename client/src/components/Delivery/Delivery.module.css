@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+.main_wrap {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #dbf2f5;
+  -webkit-clip-path: ellipse(90% 88% at 20% 66%);
+          clip-path: ellipse(90% 88% at 20% 66%);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.main_wrap__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 500px) {
+  .main_wrap__inner {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .main_wrap__inner {
+    width: 100%;
+    margin: 0 1rem;
+  }
+}
+
+.main_wrap__inner img {
+  width: 40rem;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .main_wrap__inner img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 740px) {
+  .main_wrap__inner img {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main_wrap__inner img {
+    width: 20rem;
+  }
+}
+
+.main_wrap__inner p {
+  margin-top: -5px;
+  font-size: 13px;
+}
+
+.main_wrap__inner span {
+  text-align: center;
+  margin: 1rem;
+  padding-top: 5rem;
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 500px) {
+  .main_wrap__inner span {
+    padding-top: 0;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 740px) {
+  .main_wrap__inner span {
+    padding-top: 1.3rem;
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main_wrap__inner span {
+    padding-top: 1.3rem;
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
+/*# sourceMappingURL=Delivery.module.css.map */

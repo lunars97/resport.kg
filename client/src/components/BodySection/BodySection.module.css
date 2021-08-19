@@ -1,0 +1,11 @@
+.components_wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .components_wrapper {
+    padding-top: 0;
+  }
+}
+/*# sourceMappingURL=BodySection.module.css.map */

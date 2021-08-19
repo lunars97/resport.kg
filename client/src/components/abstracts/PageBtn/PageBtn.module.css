@@ -1,0 +1,22 @@
+.btn_container {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn_container span {
+  background-color: #a87132;
+  width: 2rem;
+  height: 1.2rem;
+  color: #fff;
+  border: 1px solid #a87132;
+  text-align: center;
+  cursor: pointer;
+  margin: 1rem 0 2rem 0.3rem;
+}
+/*# sourceMappingURL=PageBtn.module.css.map */

@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Merriweather", serif;
+}
+
+.mainContainer__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainContainer__form h3 {
+  text-align: center;
+  font-size: 24px;
+  color: cadetblue;
+}
+
+.mainContainer__form input {
+  outline: none;
+}
+
+@media (max-width: 740px) {
+  .mainContainer__form__firstCol {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.mainContainer__form__firstCol input {
+  width: 10rem;
+  height: 2rem;
+  margin: 0 0.2rem 0.5rem 0;
+}
+
+@media (max-width: 320px) {
+  .mainContainer__form__firstCol input {
+    width: 11rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .mainContainer__form__firstCol input {
+    width: 13rem;
+  }
+}
+
+.mainContainer__form .auth {
+  width: 20.6rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 320px) {
+  .mainContainer__form .auth {
+    width: 11rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .mainContainer__form .auth {
+    width: 13rem;
+  }
+}
+
+.mainContainer__form button {
+  width: 21rem;
+  height: 2rem;
+}
+
+@media (max-width: 320px) {
+  .mainContainer__form button {
+    width: 11.5rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .mainContainer__form button {
+    width: 13.5rem;
+  }
+}
+/*# sourceMappingURL=SignIn.module.css.map */

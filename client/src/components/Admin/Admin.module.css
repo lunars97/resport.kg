@@ -1,0 +1,172 @@
+.main_formContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main_formContainer__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 80%;
+  margin-top: 4rem;
+}
+
+.main_formContainer__header h3 {
+  margin: 0.2rem 1rem 0 0;
+}
+
+.main_formContainer__header button {
+  width: 6rem;
+  height: 2rem;
+}
+
+.main_formContainer .form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  padding-top: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 80%;
+}
+
+.main_formContainer .form_wrapper .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main_formContainer .form_wrapper .form .description {
+  width: 16rem;
+  height: 5rem;
+  margin: 0 1rem 0.5rem 0;
+  resize: none;
+}
+
+.main_formContainer .form_wrapper .form input {
+  width: 16rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+}
+
+.main_formContainer .form_wrapper .btn {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main_formContainer .form_wrapper .btn button {
+  width: 5rem;
+  height: 2rem;
+}
+
+.table {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.table table {
+  border: 1px solid grey;
+  margin: 0 auto;
+}
+
+.table thead {
+  width: 100%;
+}
+
+.table thead tr {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+}
+
+.table thead tr th {
+  margin: 0 1rem;
+  width: 7rem;
+}
+
+.table tbody {
+  width: 100%;
+}
+
+.table tbody tr {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.table tbody tr td {
+  width: 7rem;
+}
+
+.table tbody .img {
+  width: 5rem;
+  height: 3rem;
+}
+
+.table tbody .colors {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.table tbody .colors .color {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 0.2em;
+}
+
+.table tbody .btn_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.table tbody .btn_wrapper button {
+  margin-left: 0.2rem;
+}
+/*# sourceMappingURL=Admin.module.css.map */

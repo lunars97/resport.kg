@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AEAA,OAAO,CAAC,sFAAI;AACZ,OAAO,CAAC,gFAAI",
+    "sources": [
+        "mixins.scss",
+        "abstracts/_index.scss",
+        "abstracts/_fonts.scss",
+        "abstracts/_colors.scss"
+    ],
+    "names": [],
+    "file": "mixins.css"
+}

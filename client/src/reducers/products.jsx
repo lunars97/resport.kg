@@ -6,6 +6,7 @@ import {
     DELETE,
     START_LOADING,
     END_LOADING,
+    FETCH_PRODUCT,
 } from "../constants/actionTypes";
 
 const productReducer = (state = { isLoading: true, products: [] }, action) => {
@@ -21,6 +22,8 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
                 currentPage: action.payload.currentPage,
                 numberOfPages: action.payload.numberOfPages,
             };
+        case FETCH_PRODUCT:
+            return { ...state, product: action.payload.product };
         case FETCH_BY_SEARCH:
             return { ...state, products: action.payload.data };
         case CREATE:
@@ -28,17 +31,17 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
         case UPDATE:
             return {
                 ...state,
-                products: state.products.map((products) =>
-                    products._id === action.payload._id
+                products: state.products.map((product) =>
+                    product._id === action.payload._id
                         ? action.payload
-                        : products
+                        : product
                 ),
             };
         case DELETE:
             return {
                 ...state,
                 products: state.products.filter(
-                    (products) => products._id !== action.payload
+                    (product) => product._id !== action.payload
                 ),
             };
         default:
