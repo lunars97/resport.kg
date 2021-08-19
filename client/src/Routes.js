@@ -7,6 +7,7 @@ import {
     ProductDetail,
     Admin,
     SignIn,
+    PrivateRoute,
 } from "./components/index";
 
 const Routes = () => {
@@ -16,7 +17,7 @@ const Routes = () => {
             <Switch>
                 <Route exact path="/" component={BodySection} />
                 <Route exact path="/detail" component={ProductDetail} />
-                <Route exact path="/admin" component={Admin} />
+                <PrivateRoute exact path="/admin" component={Admin} />
                 <Route exact path="/signin" component={SignIn} />
             </Switch>
             <Footer />
