@@ -28,6 +28,7 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
             return { ...state, products: action.payload.data };
         case CREATE:
             return { ...state, products: [...state.products, action.payload] };
+
         case UPDATE:
             return {
                 ...state,

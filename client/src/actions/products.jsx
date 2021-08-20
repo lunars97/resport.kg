@@ -62,7 +62,7 @@ export const createProduct = (product, history) => async (dispatch) => {
         dispatch({ type: START_LOADING });
         const { data } = await api.createProduct(product);
         dispatch({ type: CREATE, payload: data });
-        history.getProductsBySearch(`/products/${data._id}`);
+        // history.getProductsBySearch(`/products/${data._id}`);
     } catch (error) {
         console.log(error);
     }

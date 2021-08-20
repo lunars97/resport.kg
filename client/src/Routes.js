@@ -8,6 +8,7 @@ import {
     Admin,
     SignIn,
     PrivateRoute,
+    SignUp,
 } from "./components/index";
 
 const Routes = () => {
@@ -19,6 +20,7 @@ const Routes = () => {
                 <Route exact path="/detail" component={ProductDetail} />
                 <PrivateRoute exact path="/admin" component={Admin} />
                 <Route exact path="/signin" component={SignIn} />
+                <Route exact path="/signup" component={SignUp} />
             </Switch>
             <Footer />
         </Router>

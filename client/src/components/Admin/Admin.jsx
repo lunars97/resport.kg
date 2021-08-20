@@ -6,9 +6,11 @@ import { useHistory } from "react-router-dom";
 import {
     createProduct,
     updateProduct,
-    deleteProduct,
+    getProducts,
 } from "../../actions/products";
+import { TableInfo } from "../index";
 const Admin = () => {
+    const [currentId, setCurrentId] = useState(0);
     const [postProduct, setPostProduct] = useState({
         title: "",
         selectedFile: [],
@@ -21,18 +23,12 @@ const Admin = () => {
         manufactured: "",
         category: "",
     });
-    const [currentId, setCurrentId] = useState(0);
-    // const product = useSelector((state) =>
-    //     currentId
-    //         ? state.products.find(
-    //               (description) => description._id === currentId
-    //           )
-    //         : null
-    // );
-    const { products } = useSelector((state) => state.products);
-    const dispatch = useDispatch();
-    // const user = JSON.parse(localStorage.getItem("profile"));
+    const product = useSelector((state) =>
+        currentId ? state.products.find((p) => p._id === currentId) : null
+    );
+    const user = JSON.parse(localStorage.getItem("profile"));
     const history = useHistory();
+    const dispatch = useDispatch();
     const clear = () => {
         setCurrentId(0);
         setPostProduct({
@@ -49,21 +45,26 @@ const Admin = () => {
         });
     };
     useEffect(() => {
-        // if (!product.title) {
-        //     clear();
-        // }
-        setPostProduct(postProduct);
-    }, [postProduct]);
+        if (!product?.title) clear();
+        if (product) setPostProduct(product);
+    }, [product]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (currentId === 0) {
-            dispatch(createProduct({ ...postProduct }, history));
+            dispatch(
+                createProduct(
+                    { ...postProduct, name: user?.result?.name },
+                    history
+                )
+            );
             clear();
         } else {
             dispatch(
                 updateProduct(currentId, {
                     ...postProduct,
+                    name: user?.result?.name,
                 })
             );
             clear();
@@ -203,78 +204,11 @@ const Admin = () => {
                                 })
                             }
                         />
-                        <div className={classes.btn}>
-                            <button type="submit"> Добавить</button>
-                            <button onClick={() => clear()}>clear</button>
-                        </div>
+                        <button type="submit"> Добавить</button>
                     </form>
                 </div>
             </div>
-            <div className={classes.table}>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Изображение</th>
-                            <th>Название</th>
-                            <th>Артикул</th>
-                            <th>Размер</th>
-                            <th>Цвета</th>
-                            <th>Старая цена</th>
-                            <th>Новая цена</th>
-                        </tr>
-                    </thead>
-                    {products?.map(
-                        (
-                            product // divide it into another folder
-                        ) => (
-                            <tbody key={product._id}>
-                                <tr>
-                                    <td>
-                                        <img
-                                            className={classes.img}
-                                            src={product.selectedFile}
-                                            alt={product.title}
-                                        />
-                                    </td>
-                                    <td>{product.title}</td>
-                                    <td>{product.article}</td>
-                                    <td>{product.size}</td>
-                                    <td>
-                                        <div className={classes.colors}>
-                                            <span
-                                                style={{
-                                                    backgroundColor:
-                                                        product.color,
-                                                }}
-                                                className={classes.color}
-                                            ></span>
-                                        </div>
-                                    </td>
-                                    <td>{product.oldPrice}</td>
-                                    <td>{product.newPrice}</td>
-                                </tr>
-                                <div className={classes.btn_wrapper}>
-                                    <button
-                                        onClick={() =>
-                                            dispatch(deleteProduct(product._id))
-                                        }
-                                    >
-                                        delete
-                                    </button>
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setCurrentId(product._id);
-                                        }}
-                                    >
-                                        edit
-                                    </button>
-                                </div>
-                            </tbody>
-                        )
-                    )}
-                </table>
-            </div>
+            <TableInfo currentId={currentId} setCurrentId={setCurrentId} />
         </>
     );
 };
