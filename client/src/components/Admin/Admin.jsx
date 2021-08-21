@@ -3,11 +3,7 @@ import classes from "./Admin.module.scss";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {
-    createProduct,
-    updateProduct,
-    getProducts,
-} from "../../actions/products";
+import { createProduct, updateProduct } from "../../actions/products";
 import { TableInfo } from "../index";
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0);
@@ -24,7 +20,9 @@ const Admin = () => {
         category: "",
     });
     const product = useSelector((state) =>
-        currentId ? state.products.find((p) => p._id === currentId) : null
+        currentId
+            ? state.products.products.find((p) => p._id === currentId)
+            : null
     );
     const user = JSON.parse(localStorage.getItem("profile"));
     const history = useHistory();
@@ -208,7 +206,11 @@ const Admin = () => {
                     </form>
                 </div>
             </div>
-            <TableInfo currentId={currentId} setCurrentId={setCurrentId} />
+            <TableInfo
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+                product={product}
+            />
         </>
     );
 };

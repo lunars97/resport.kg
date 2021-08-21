@@ -12,18 +12,17 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
-export const fetchProduct = (id) => API.get(`/products/${id}`);
-export const fetchProducts = (page) => API.get(`/products?page=${page}`);
+export const fetchProduct = (id) => API.get(`/admin/${id}`);
+export const fetchProducts = (page) => API.get(`/admin`);
 export const fetchProductsBySearch = (searchQuery) =>
     axios.get(`/products/search?searchQuery=${searchQuery.search || "none"}`);
-export const createProduct = (newProduct) =>
-    API.post(`/products`, `/admin`, newProduct);
+export const createProduct = (newProduct) => API.post(`/admin`, newProduct);
 
 export const updateProduct = (id, updatedProduct) =>
-    API.patch(`/admin/${id}`, `/products/${id}`, updatedProduct);
+    API.patch(`/admin/${id}`, updatedProduct);
 export const deleteProduct = (id) => {
     API.delete(`/admin/${id}`);
 };
 
-export const signIn = (formData) => API.post("/user/signin", formData);
-export const signUp = (formData) => API.post("/user/signup", formData);
+export const signin = (formData) => API.post("/signin", formData);
+export const signup = (formData) => API.post("/signup", formData);

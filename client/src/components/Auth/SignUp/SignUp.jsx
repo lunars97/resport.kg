@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "../SignUp/SignUp.module.scss";
-import { signin, signup } from "../../actions/products";
-import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../../../actions/auth";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 const initialState = { firstName: "", lastName: "", email: "", password: "" };
 
@@ -14,9 +14,9 @@ const SignUp = () => {
 
         dispatch(signup(form, history));
     };
-
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
+
     return (
         <div className={classes.mainContainer}>
             <form
@@ -47,8 +47,8 @@ const SignUp = () => {
                 />
                 <input
                     className={classes.auth}
-                    type="text"
                     placeholder="Пароль"
+                    type="text"
                     name="password"
                     onChange={handleChange}
                 />

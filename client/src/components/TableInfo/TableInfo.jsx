@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./TableInfo.module.scss";
-import { deleteProduct } from "../../actions/products";
-const TableInfo = ({ setCurrentId, currentId }) => {
+import { deleteProduct, getProducts } from "../../actions/products";
+const TableInfo = ({ setCurrentId }) => {
     const { products } = useSelector((state) => state.products);
     const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getProducts(products));
+    }, [dispatch, products]);
     return (
         <div className={classes.table}>
             <table>
@@ -17,6 +20,8 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                         <th>Цвета</th>
                         <th>Старая цена</th>
                         <th>Новая цена</th>
+                        <th>Категория</th>
+                        <th>Описание</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -45,6 +50,8 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                             </td>
                             <td>{product.oldPrice}</td>
                             <td>{product.newPrice}</td>
+                            <td>{product.category}</td>
+                            <td>{product.description}</td>
                             <td className={classes.btn_wrapper}>
                                 <button
                                     onClick={() =>
