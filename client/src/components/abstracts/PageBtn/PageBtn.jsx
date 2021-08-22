@@ -14,25 +14,20 @@ const PageBtn = ({ page }) => {
         }
     }, [dispatch, page]);
     return (
-        <div
+        <Pagination
             className={classes.btn_container}
             count={numberOfPages}
             page={Number(page) || 1}
-        >
-            <Pagination
-                count={numberOfPages}
-                page={Number(page) || 1}
-                variant="outlined"
-                color="primary"
-                renderItem={(item) => (
-                    <PaginationItem
-                        {...item}
-                        component={Link}
-                        to={`/admin?page=${item.page}`}
-                    />
-                )}
-            />
-        </div>
+            variant="outlined"
+            color="primary"
+            renderItem={(item) => (
+                <PaginationItem
+                    {...item}
+                    component={Link}
+                    to={`/admin?page=${item.page}`}
+                />
+            )}
+        />
     );
 };
 

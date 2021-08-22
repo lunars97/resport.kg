@@ -11,7 +11,7 @@ const BodySection = () => {
             <div className={classes.components_wrapper}>
                 <TopSales />
                 <ProductCard />
-                <PageBtn />
+                {/* <PageBtn /> */}
                 <Delivery />
             </div>
         </>

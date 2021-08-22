@@ -24,5 +24,5 @@ export const deleteProduct = (id) => {
     API.delete(`/admin/${id}`);
 };
 
-export const signin = (formData) => API.post("/signin", formData);
-export const signup = (formData) => API.post("/signup", formData);
+export const signin = (formData) => API.post("/user/signin", formData);
+export const signup = (formData) => API.post("/user/signup", formData);

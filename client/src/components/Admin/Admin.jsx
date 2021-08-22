@@ -2,11 +2,20 @@ import React, { useState, useEffect } from "react";
 import classes from "./Admin.module.scss";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { createProduct, updateProduct } from "../../actions/products";
+import decode from "jwt-decode";
+import * as actionTypes from "../../constants/actionTypes";
 import { TableInfo } from "../index";
+import { PageBtn } from "../abstracts";
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0);
+    const [loggedUser, setLoggedUser] = useState(
+        JSON.parse(localStorage.getItem("profile"))
+    );
     const [postProduct, setPostProduct] = useState({
         title: "",
         selectedFile: [],
@@ -19,6 +28,8 @@ const Admin = () => {
         manufactured: "",
         category: "",
     });
+    const query = useQuery();
+    const page = query.get("page") || 1;
     const product = useSelector((state) =>
         currentId
             ? state.products.products.find((p) => p._id === currentId)
@@ -26,6 +37,7 @@ const Admin = () => {
     );
     const user = JSON.parse(localStorage.getItem("profile"));
     const history = useHistory();
+    const location = useLocation();
     const dispatch = useDispatch();
     const clear = () => {
         setCurrentId(0);
@@ -45,8 +57,23 @@ const Admin = () => {
     useEffect(() => {
         if (!product?.title) clear();
         if (product) setPostProduct(product);
-    }, [product]);
+        const token = user?.token;
+        if (token) {
+            const decodedToken = decode(token);
 
+            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+
+        setLoggedUser(JSON.parse(localStorage.getItem("profile")));
+    }, [product, location]);
+
+    const logout = () => {
+        dispatch({ type: actionTypes.LOGOUT });
+
+        history.push("/signin");
+
+        setLoggedUser(null);
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -73,7 +100,7 @@ const Admin = () => {
             <div className={classes.main_formContainer}>
                 <div className={classes.main_formContainer__header}>
                     <h3>Hello</h3>
-                    <button>Выйти</button>
+                    <button onClick={logout}>Выйти</button>
                 </div>
                 <div className={classes.form_wrapper}>
                     <form
@@ -211,6 +238,7 @@ const Admin = () => {
                 setCurrentId={setCurrentId}
                 product={product}
             />
+            <PageBtn page={page} />
         </>
     );
 };

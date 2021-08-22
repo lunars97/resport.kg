@@ -40,7 +40,7 @@ const SignUp = () => {
                 </div>
                 <input
                     className={classes.auth}
-                    type="text"
+                    type="email"
                     placeholder="Логин"
                     name="login"
                     onChange={handleChange}
@@ -48,7 +48,7 @@ const SignUp = () => {
                 <input
                     className={classes.auth}
                     placeholder="Пароль"
-                    type="text"
+                    type="password"
                     name="password"
                     onChange={handleChange}
                 />
