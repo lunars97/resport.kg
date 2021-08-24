@@ -32,7 +32,6 @@ export const signin = async (req, res) => {
 
 export const signup = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
-
     try {
         const logedUser = await UserModal.findOne({ email });
 

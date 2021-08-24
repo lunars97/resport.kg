@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        match: [/\S+@\S+\.\S+/, "is invalid"],
     },
     password: { type: String, required: true },
     id: { type: String },

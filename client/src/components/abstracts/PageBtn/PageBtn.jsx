@@ -12,14 +12,13 @@ const PageBtn = ({ page }) => {
         if (page) {
             dispatch(getProducts(page));
         }
-    }, [dispatch, page]);
+    }, [page, dispatch]);
     return (
         <Pagination
             className={classes.btn_container}
             count={numberOfPages}
             page={Number(page) || 1}
             variant="outlined"
-            color="primary"
             renderItem={(item) => (
                 <PaginationItem
                     {...item}

@@ -3,7 +3,7 @@ import classes from "../SignIn/SignIn.module.scss";
 import { signin } from "../../../actions/auth";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-const initialState = { firstName: "", lastName: "", email: "", password: "" };
+const initialState = { email: "", password: "" };
 const SignIn = () => {
     const [form, setForm] = useState(initialState);
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const SignIn = () => {
                     className={classes.auth}
                     type="text"
                     placeholder="Логин"
-                    name="login"
+                    name="email"
                     onChange={handleChange}
                 />
                 <input

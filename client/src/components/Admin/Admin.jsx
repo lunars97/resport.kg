@@ -39,23 +39,8 @@ const Admin = () => {
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
-    const clear = () => {
-        setCurrentId(0);
-        setPostProduct({
-            title: "",
-            selectedFile: "",
-            article: "",
-            color: "",
-            size: "",
-            newPrice: "",
-            oldPrice: "",
-            description: "",
-            manufactured: "",
-            category: "",
-        });
-    };
+
     useEffect(() => {
-        if (!product?.title) clear();
         if (product) setPostProduct(product);
         const token = user?.token;
         if (token) {
@@ -65,7 +50,7 @@ const Admin = () => {
         }
 
         setLoggedUser(JSON.parse(localStorage.getItem("profile")));
-    }, [product, location]);
+    }, []);
 
     const logout = () => {
         dispatch({ type: actionTypes.LOGOUT });
@@ -73,6 +58,21 @@ const Admin = () => {
         history.push("/signin");
 
         setLoggedUser(null);
+    };
+    const clear = () => {
+        setCurrentId(0);
+        setPostProduct({
+            title: "",
+            selectedFile: [],
+            article: "",
+            color: "",
+            size: "",
+            newPrice: "",
+            oldPrice: "",
+            description: "",
+            manufactured: "",
+            category: "",
+        });
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -84,7 +84,6 @@ const Admin = () => {
                     history
                 )
             );
-            clear();
         } else {
             dispatch(
                 updateProduct(currentId, {
@@ -92,14 +91,14 @@ const Admin = () => {
                     name: user?.result?.name,
                 })
             );
-            clear();
         }
     };
     return (
         <>
             <div className={classes.main_formContainer}>
                 <div className={classes.main_formContainer__header}>
-                    <h3>Hello</h3>
+                    <h3>Добро пожаловать,</h3>
+                    {user?.result && <span>{user?.result.name}</span>}
                     <button onClick={logout}>Выйти</button>
                 </div>
                 <div className={classes.form_wrapper}>
@@ -112,7 +111,7 @@ const Admin = () => {
                         <div>
                             <FileBase
                                 type="file"
-                                multiple={false}
+                                multiple={true}
                                 onDone={({ base64 }) =>
                                     setPostProduct({
                                         ...postProduct,

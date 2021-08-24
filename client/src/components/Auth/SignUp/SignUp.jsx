@@ -42,7 +42,7 @@ const SignUp = () => {
                     className={classes.auth}
                     type="email"
                     placeholder="Логин"
-                    name="login"
+                    name="email"
                     onChange={handleChange}
                 />
                 <input

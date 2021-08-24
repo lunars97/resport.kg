@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./TableInfo.module.scss";
 import { deleteProduct, getProducts } from "../../actions/products";
-const TableInfo = ({ setCurrentId }) => {
+const TableInfo = ({ setCurrentId, currentId }) => {
     const { products } = useSelector((state) => state.products);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProducts(products));
-    }, [dispatch, products]);
+    }, []);
     return (
         <div className={classes.table}>
             <table>

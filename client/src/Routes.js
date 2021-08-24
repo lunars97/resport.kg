@@ -25,11 +25,11 @@ const Routes = () => {
                 <Route
                     path="/"
                     exact
-                    component={() => <Redirect to="/admin" />}
+                    component={() => <Redirect to="/products" />}
                 />
                 <Route exact path="/products" component={BodySection} />
-                <Route exact path="/detail" component={ProductDetail} />
-                {/* <PrivateRoute exact path="/admin" component={Admin} /> */}
+                <Route exact path="/products/:id" component={ProductDetail} />
+                <PrivateRoute exact path="/admin" component={Admin} />
                 <Route exact path="/signin" component={SignIn} />
                 {/* <Route exact path="/signup" component={SignUp} /> */}
                 <Route
