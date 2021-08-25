@@ -17,9 +17,9 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                         <th>Название</th>
                         <th>Артикул</th>
                         <th>Размер</th>
-                        <th>Цвета</th>
-                        <th>Старая цена</th>
-                        <th>Новая цена</th>
+                        <th>Цвет</th>
+                        <th>Цена</th>
+
                         <th>Категория</th>
                         <th>Описание</th>
                         <th></th>
@@ -48,8 +48,8 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                                     ></span>
                                 </div>
                             </td>
-                            <td>{product.oldPrice}</td>
-                            <td>{product.newPrice}</td>
+                            <td>{product.price}</td>
+
                             <td>{product.category}</td>
                             <td>{product.description}</td>
                             <td className={classes.btn_wrapper}>

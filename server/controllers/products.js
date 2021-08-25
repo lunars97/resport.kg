@@ -31,11 +31,11 @@ export const getProductsBySearch = async (req, res) => {
 
     try {
         const title = new RegExp(searchQuery, "i");
-        const newPrice = new RegExp(searchQuery, "i");
+        const price = new RegExp(searchQuery, "i");
         const color = new RegExp(searchQuery, "i");
         const category = new RegExp(searchQuery, "i");
         const products = await AddProduct.find({
-            $or: [{ title, newPrice, color, category }],
+            $or: [{ title, price, color, category }],
         });
 
         res.json({ data: products });
@@ -73,8 +73,8 @@ export const updateProduct = async (req, res) => {
         article,
         color,
         size,
-        newPrice,
-        oldPrice,
+        price,
+        makeup,
         description,
         manufactured,
     } = req.body;
@@ -85,8 +85,8 @@ export const updateProduct = async (req, res) => {
         article,
         color,
         size,
-        newPrice,
-        oldPrice,
+        price,
+        makeup,
         description,
         manufactured,
         _id: id,

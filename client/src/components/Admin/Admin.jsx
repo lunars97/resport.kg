@@ -6,7 +6,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { createProduct, updateProduct } from "../../actions/products";
 import decode from "jwt-decode";
 import * as actionTypes from "../../constants/actionTypes";
-import { TableInfo } from "../index";
+import { TableInfo, ProductCard } from "../index";
 import { PageBtn } from "../abstracts";
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -22,9 +22,9 @@ const Admin = () => {
         article: "",
         color: "",
         size: "",
-        newPrice: "",
-        oldPrice: "",
+        price: "",
         description: "",
+        makeup: "",
         manufactured: "",
         category: "",
     });
@@ -37,7 +37,6 @@ const Admin = () => {
     );
     const user = JSON.parse(localStorage.getItem("profile"));
     const history = useHistory();
-    const location = useLocation();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -67,8 +66,8 @@ const Admin = () => {
             article: "",
             color: "",
             size: "",
-            newPrice: "",
-            oldPrice: "",
+            price: "",
+            makeup: "",
             description: "",
             manufactured: "",
             category: "",
@@ -133,29 +132,30 @@ const Admin = () => {
                             }
                         />
                         <input
-                            name="oldPrice"
-                            value={postProduct.oldPrice}
+                            name="price"
+                            value={postProduct.price}
                             type="text"
-                            placeholder="Старая цена"
+                            placeholder="Цена"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
-                                    oldPrice: e.target.value,
+                                    price: e.target.value,
                                 })
                             }
                         />
                         <input
-                            name="newPrice"
-                            value={postProduct.newPrice}
+                            name="makeup"
+                            value={postProduct.makeup}
                             type="text"
-                            placeholder="Новая цена"
+                            placeholder="Состав"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
-                                    newPrice: e.target.value,
+                                    makeup: e.target.value,
                                 })
                             }
                         />
+
                         <input
                             name="article"
                             value={postProduct.article}
@@ -238,6 +238,9 @@ const Admin = () => {
                 product={product}
             />
             <PageBtn page={page} />
+            <div className={classes.none}>
+                <ProductCard product={product} />
+            </div>
         </>
     );
 };

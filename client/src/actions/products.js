@@ -44,6 +44,7 @@ export const getProducts = (page) => async (dispatch) => {
         console.log(error);
     }
 };
+
 export const getProductsBySearch = (searchQuery) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });

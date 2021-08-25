@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import dress from "../../assets/images/yellowDress.png";
 import classes from "./ProductDetail.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import { getProduct } from "../../actions/products";
 const ProductDetail = () => {
+    const { product } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+
+    const { id } = useParams();
     const settings = {
         customPaging: function (i) {
             return (
@@ -19,69 +27,85 @@ const ProductDetail = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+    useEffect(() => {
+        dispatch(getProduct(id));
+    }, [id]);
+
+    if (!product) return null;
+    // const recommendedProducts = products.filter(
+    //     ({ _id }) => _id !== products._id
+    // );
+
     return (
         <div className={classes.detail_wrapper}>
             <div className={classes.detail_wrapper__inner}>
                 <Slider {...settings}>
                     <div className={classes.img_wrapper}>
                         <div className={classes.main_img_container}>
-                            <img src={dress} alt="dress" />
+                            <img
+                                src={product.selectedFiles}
+                                alt={product.title}
+                            />
                         </div>
                         <div className={classes.small_img_wrapper}>
                             <div className={classes.small_img_container}>
-                                <img src={dress} alt="dress" />
+                                <img
+                                    src={product.selectedFiles}
+                                    alt={product.title}
+                                />
                             </div>
                             <div className={classes.small_img_container}>
-                                <img src={dress} alt="dress" />
+                                <img
+                                    src={product.selectedFiles}
+                                    alt={product.title}
+                                />
                             </div>
                             <div className={classes.small_img_container}>
-                                <img src={dress} alt="dress" />
+                                <img
+                                    src={product.selectedFiles}
+                                    alt={product.title}
+                                />
                             </div>
                         </div>
                     </div>
                 </Slider>
                 <div className={classes.description}>
                     <div className={classes.description__inner}>
-                        <span>Название товара</span>
+                        <span>{product.title}</span>
                         <div
                             className={
                                 classes.description__inner__first_section
                             }
                         >
-                            <p>артикул: 122345AA</p>
+                            <p>артикул: {product.article}</p>
                             <p className={classes.category}>
-                                категория товара: женская одежда
+                                категория товара: {product.category}
                             </p>
                         </div>
                         <div className={classes.description__inner_info}>
                             <div className={classes.description__inner__colors}>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                <div
+                                    style={{ backgroundColor: product.color }}
+                                ></div>
                             </div>
                             <div
                                 className={
                                     classes.description__inner_info__size
                                 }
                             >
-                                <p>размер: s,m,l,xl</p>
+                                <p>размер: {product.size}</p>
                             </div>
                         </div>
                         <span>Описание товара</span>
                         <p className={classes.description_text}>
-                            Комплекты снова в моде. В этом сезоне мы
-                            представляем уютный спортивный костюм Loungewear
-                            Women's Tracksuit. Верх с круглым вырезом горловины
-                            и карманом-кенгуру отлично сочетается со штанами в
-                            тон. Свободный крой, мягкий материал и
-                            высококлассный вышитый брендинг – несомненные
-                            преимущества модели, в составе материала которой
-                            присутствует премиальный, экологичный хлопок от BCI.
+                            {product.description}
                         </p>
                         <p className={classes.manufactured}>
-                            Cтрана производитель: Китай
+                            Cтрана производитель: {product.manufactured}
                         </p>
-                        <p className={classes.manufactured}>Cостав: Китай</p>
+                        <p className={classes.manufactured}>
+                            Cостав: {product.makeup}
+                        </p>
                         <div>
                             <button className={classes.btn}>
                                 Заказать{" "}

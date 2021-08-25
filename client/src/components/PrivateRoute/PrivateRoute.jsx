@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const user = JSON.parse(localStorage.getItem("profile"));
 const PrivateRoute = ({ children, ...rest }) => {
+    const admin = JSON.parse(localStorage.getItem("profile"));
     return (
         <Route
             {...rest}
-            render={() => (user ? children : <Redirect to="/signup" />)}
+            render={() => (admin ? children : <Redirect to="/signup" />)}
         />
     );
 };

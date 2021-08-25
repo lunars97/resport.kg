@@ -14,6 +14,7 @@ import {
     SignIn,
     PrivateRoute,
     SignUp,
+    NotFound,
 } from "./components/index";
 
 const Routes = () => {
@@ -29,9 +30,9 @@ const Routes = () => {
                 />
                 <Route exact path="/products" component={BodySection} />
                 <Route exact path="/products/:id" component={ProductDetail} />
-                <PrivateRoute exact path="/admin" component={Admin} />
+                <Route exact path="/admin" component={Admin} />
                 <Route exact path="/signin" component={SignIn} />
-                {/* <Route exact path="/signup" component={SignUp} /> */}
+                <Route exact path="/signup" component={SignUp} />
                 <Route
                     path="/signup"
                     exact
@@ -39,6 +40,7 @@ const Routes = () => {
                         !user ? <SignUp /> : <Redirect to="/admin" />
                     }
                 />
+                <Route component={NotFound} />
             </Switch>
             <Footer />
         </Router>

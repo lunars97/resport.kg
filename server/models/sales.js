@@ -6,11 +6,11 @@ const postSchema = mongoose.Schema({
     article: String,
     color: String,
     size: String,
-    price: String,
-    makeup: String,
+    newPrice: String,
+    oldPrice: String,
     description: String,
     manufactured: String,
     category: String,
 });
-var AddProduct = mongoose.model("AddProduct", postSchema);
-export default AddProduct;
+var Sales = mongoose.model("Sales", postSchema);
+export default Sales;

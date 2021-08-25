@@ -12,8 +12,9 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
-export const fetchProduct = (id) => API.get(`/admin/${id}`);
-export const fetchProducts = (page) => API.get(`/admin`);
+export const fetchProduct = (id) =>
+    API.get(`/admin/${id}` && `/products/${id}`);
+export const fetchProducts = (page) => API.get(`/admin` && `/products`);
 export const fetchProductsBySearch = (searchQuery) =>
     axios.get(`/products/search?searchQuery=${searchQuery.search || "none"}`);
 export const createProduct = (newProduct) => API.post(`/admin`, newProduct);
