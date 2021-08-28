@@ -40,7 +40,7 @@ const TopSales = () => {
     };
     return (
         <div className={classes.main_card_wrap}>
-            <h1>Хит продаж</h1>
+            <h1>Похожие товары</h1>
             <Slider {...settings}>
                 <div className={classes.inner_card}>
                     <div className={classes.inner_card__img_frame}>

@@ -1,9 +1,14 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/abstracts/fonts";
 .table {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 2rem;
     padding: 1rem 0;
+    @include breakpoint(medium) {
+        margin: 0rem 1rem 1rem 0;
+    }
     table {
         border: 1px solid grey;
         margin: 0 auto;
@@ -15,6 +20,12 @@
             display: flex;
             justify-content: space-between;
             margin: 0 auto;
+            @include breakpoint(medium) {
+                // flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 100%;
+            }
 
             th {
                 margin: 0 1rem;
@@ -29,9 +40,23 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
+            @include breakpoint(medium) {
+                // flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 100%;
+            }
             td {
                 width: 7rem;
+                text-align: center;
                 padding-left: 0.7rem;
+            }
+            .title {
+                overflow: scroll;
+            }
+
+            .description {
+                overflow: scroll;
             }
         }
 

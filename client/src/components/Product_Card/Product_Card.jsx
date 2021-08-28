@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import classes from "./Product_Card.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../../actions/products";
+import { getProduct, getProducts } from "../../actions/products";
 import { useHistory } from "react-router-dom";
-const ProductCard = ({ product }) => {
-    const { products } = useSelector((state) => state.products);
+const ProductCard = () => {
+    const { products, product } = useSelector((state) => state.products);
+
     const dispatch = useDispatch();
     const history = useHistory();
     useEffect(() => {
         dispatch(getProducts(products));
+        dispatch(getProduct(product));
     }, []);
     const openProduct = (e) => {
         history.push(`/products/${product._id}`);

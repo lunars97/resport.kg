@@ -1,57 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import classes from "./Navbar.module.scss";
 import logo from "../../assets/images/logo.jpg";
 const Navbar = () => {
     return (
         <>
-            <div className="header">
-                <div className="container">
-                    <input type="checkbox" name="" id="check" />
-                    <div className="logo-container">
+            <div className={classes.header}>
+                <div className={classes.container}>
+                    <input type="checkbox" name="" id={classes.check} />
+                    <div className={classes.logo_container}>
                         <Link to="/">
                             {" "}
-                            <img
-                                src={logo}
-                                alt="resport_logo"
-                                style={{
-                                    width: "50px",
-                                    height: "50px",
-                                    margin: "5px 0px",
-                                    borderRadius: "50%",
-                                }}
-                            />
+                            <img src={logo} alt="resport_logo" />
                         </Link>
                     </div>
 
-                    <div className="nav-btn">
-                        <div className="nav-links">
+                    <div className={classes.nav_btn}>
+                        <div className={classes.nav_links}>
                             <ul>
-                                <Link
-                                    className="link"
-                                    to="/"
-                                    style={{
-                                        textDecoration: "none",
-                                        lineHeight: "3rem",
-                                        color: "black",
-                                    }}
-                                >
-                                    <li className="nav-link">Главная</li>
-                                </Link>
+                                <li className={classes.nav_link}>
+                                    <Link className={classes.link} to="/">
+                                        Главная
+                                    </Link>
+                                </li>
                                 <li
-                                    className="nav-link"
+                                    className={classes.nav_link}
                                     onClick={() =>
                                         window.location.replace("/#products")
                                     }
                                 >
                                     <Link
-                                        className="products link"
+                                        className={classes.link}
                                         to="/#products"
-                                        style={{
-                                            textDecoration: "none",
-                                            // lineHeight: "3rem",
-                                            color: "black",
-                                        }}
                                     >
                                         Продукция
                                         <i
@@ -59,73 +39,50 @@ const Navbar = () => {
                                             aria-hidden="true"
                                         ></i>
                                     </Link>
-                                    <ul className="dropdown">
-                                        <Link
-                                            to="men"
-                                            style={{
-                                                color: "black",
-                                                // padding: "0.5rem 1rem",
-                                                fontSize: "0.9rem",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            <li className="dropdown-link">
-                                                Мужская одежда
-                                            </li>
-                                        </Link>
-                                        <Link
-                                            to="women"
-                                            style={{
-                                                color: "black",
-                                                fontSize: "0.9rem",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            <li className="dropdown-link">
-                                                Женская одежда
-                                            </li>
-                                        </Link>
-                                        {/* <li className="dropdown-link">
+                                    <ul className={classes.dropdown}>
+                                        <li className={classes.dropdown_link}>
                                             <Link
-                                                to="shoes"
+                                                to="men"
                                                 style={{
                                                     color: "black",
-                                                    padding: "0.5rem 1rem",
+                                                    // padding: "0.5rem 1rem",
                                                     fontSize: "0.9rem",
-                                                    alignItems: "center",
-                                                    justifyContent:
-                                                        "space-between",
                                                     textDecoration: "none",
                                                 }}
                                             >
-                                                Обувь
+                                                Мужская одежда
                                             </Link>
-                                        </li> */}
+                                        </li>
+                                        <li className={classes.dropdown_link}>
+                                            <Link
+                                                to="women"
+                                                style={{
+                                                    color: "black",
+                                                    fontSize: "0.9rem",
+                                                    textDecoration: "none",
+                                                }}
+                                            >
+                                                Женская одежда
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li
-                                    className="nav-link"
+                                    className={classes.nav_link}
                                     onClick={() =>
                                         window.location.replace("/#contacts")
                                     }
                                 >
                                     <Link
-                                        className="link"
+                                        className={classes.link}
                                         to="/#contacts"
-                                        style={{
-                                            textDecoration: "none",
-                                            lineHeight: "3rem",
-                                            color: "black",
-                                            alignItems: "center",
-                                            justifyContent: "space-between",
-                                        }}
                                     >
                                         Контакты
                                     </Link>
                                 </li>
                                 <li>
-                                    <div className="search-box">
-                                        <button className="btn-search">
+                                    <div className={classes.search_box}>
+                                        <button className={classes.btn_search}>
                                             <i
                                                 className="fa fa-search"
                                                 aria-hidden="true"
@@ -133,7 +90,7 @@ const Navbar = () => {
                                         </button>
                                         <input
                                             type="text"
-                                            className="input-search"
+                                            className={classes.input_search}
                                             placeholder="Type to Search..."
                                         />
                                     </div>
@@ -141,8 +98,8 @@ const Navbar = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="hamburger-menu-container">
-                        <div className="hamburger-menu">
+                    <div className={classes.hamburger_menu_container}>
+                        <div className={classes.hamburger_menu}>
                             <div></div>
                         </div>
                     </div>

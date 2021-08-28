@@ -35,9 +35,9 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                                     alt={product.title}
                                 />
                             </td>
-                            <td>{product.title}</td>
+                            <td className={classes.title}>{product.title}</td>
                             <td>{product.article}</td>
-                            <td>{product.size}</td>
+                            <td className={classes.size}>{product.size}</td>
                             <td>
                                 <div className={classes.colors}>
                                     <span
@@ -51,7 +51,9 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                             <td>{product.price}</td>
 
                             <td>{product.category}</td>
-                            <td>{product.description}</td>
+                            <td className={classes.description}>
+                                {product.description}
+                            </td>
                             <td className={classes.btn_wrapper}>
                                 <button
                                     onClick={() =>

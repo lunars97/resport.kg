@@ -9,7 +9,7 @@ import {
     FETCH_PRODUCT,
 } from "../constants/actionTypes";
 
-const productReducer = (state = { isLoading: true, products: [] }, action) => {
+export default (state = { isLoading: true, products: [] }, action) => {
     switch (action.type) {
         case START_LOADING:
             return { ...state, isLoading: true };
@@ -49,4 +49,4 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
             return state;
     }
 };
-export default productReducer;
+// export default productReducer;

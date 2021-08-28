@@ -13,7 +13,7 @@ import auth from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/", getProducts);
-router.get("/detail:id", getProduct);
+router.get("/:id", getProduct);
 router.get("/search", getProductsBySearch);
 
 router.post("/", auth, createProduct);

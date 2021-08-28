@@ -7,6 +7,7 @@ export { default as Navbar } from "./Navbar/Navbar";
 export { default as Footer } from "./Footer/Footer";
 export { default as SignUp } from "./Auth/SignUp/SignUp";
 export { default as SignIn } from "./Auth/SignIn/SignIn";
-export { default as PrivateRoute } from "./PrivateRoute/PrivateRoute";
 export { default as TableInfo } from "./TableInfo/TableInfo";
 export { default as NotFound } from "./NotFound/NotFound";
+export { default as HeroSection } from "./HeroSection/HeroSection";
+export { default as Delivery } from "./Delivery/Delivery";
