@@ -23,7 +23,7 @@ const PageBtn = ({ page }) => {
                 <PaginationItem
                     {...item}
                     component={Link}
-                    to={`/admin?page=${item.page}`}
+                    to={`/products?page=${item.page}`}
                 />
             )}
         />

@@ -1,0 +1,50 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/abstracts/fonts";
+.main {
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    font-family: $fontFamily;
+    font-size: 14px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    &__inner {
+        width: 350px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10rem 0 0 0;
+        background: #fff;
+        &__close {
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+        div {
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+            img {
+                width: 3rem;
+            }
+        }
+
+        span {
+            text-align: center;
+            margin: 0 0.5rem;
+        }
+
+        button {
+            width: 7rem;
+
+            @include buttonStyle;
+        }
+    }
+}

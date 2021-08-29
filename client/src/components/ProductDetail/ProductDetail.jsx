@@ -1,24 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import dress from "../../assets/images/yellowDress.png";
 import classes from "./ProductDetail.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getProduct } from "../../actions/products";
 import TopSales from "../TopSales/TopSales";
+import ModalWindow from "../abstracts/ModalWindow/ModalWindow";
 const ProductDetail = () => {
-    const { product } = useSelector((state) => state.products);
+    const [modal, setModal] = useState(false);
+    const { products, product } = useSelector((state) => state.products);
     const { id } = useParams();
     const dispatch = useDispatch();
-    // const history = useHistory()
     useEffect(() => {
         dispatch(getProduct(id));
     }, [id, dispatch]);
-    // const openPost = (_id) => {
-    //     // dispatch(getPost(post._id, history));
 
-    //     history.push(`/products/${product._id}`);
-    // };
     if (!product) return null;
     const settings = {
         customPaging: function (i) {
@@ -36,12 +33,12 @@ const ProductDetail = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
-    // const recommendedProducts = products.filter(
-    //     ({ _id }) => _id !== products._id
-    // );
+    const recommendedProducts = products.filter(
+        ({ _id }) => _id !== product._id
+    );
 
     return (
-        <>
+        <div className={classes.main_wrapper}>
             <div className={classes.detail_wrapper}>
                 <div className={classes.detail_wrapper__inner}>
                     <Slider {...settings}>
@@ -118,7 +115,10 @@ const ProductDetail = () => {
                                 Cостав: {product.makeup}
                             </p>
                             <div>
-                                <button className={classes.btn}>
+                                <button
+                                    className={classes.btn}
+                                    onClick={() => setModal((prev) => !prev)}
+                                >
                                     Заказать{" "}
                                     <i
                                         className="fa fa-shopping-cart"
@@ -130,8 +130,9 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-            <TopSales />
-        </>
+            {!!recommendedProducts.length && <TopSales />}
+            <ModalWindow modal={modal} setModal={setModal} />
+        </div>
     );
 };
 

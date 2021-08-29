@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import classes from "./Admin.module.scss";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createProduct, updateProduct } from "../../actions/products";
 import decode from "jwt-decode";
 import * as actionTypes from "../../constants/actionTypes";
 import { TableInfo, ProductCard } from "../index";
-import { PageBtn } from "../abstracts";
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
+
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0);
     const [loggedUser, setLoggedUser] = useState(
@@ -28,8 +25,7 @@ const Admin = () => {
         manufactured: "",
         category: "",
     });
-    const query = useQuery();
-    const page = query.get("page") || 1;
+
     const product = useSelector((state) =>
         currentId
             ? state.products.products.find((p) => p._id === currentId)
@@ -73,6 +69,9 @@ const Admin = () => {
             category: "",
         });
     };
+    if (!user?.result?.name) {
+        history.push("/signin");
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -237,7 +236,7 @@ const Admin = () => {
                 setCurrentId={setCurrentId}
                 product={product}
             />
-            <PageBtn page={page} />
+
             <div className={classes.none}>
                 <ProductCard product={product} />
             </div>

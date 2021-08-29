@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { getProducts } from "../../actions/products";
 import Slider from "react-slick";
 import classes from "./TopSales.module.scss";
 import dress from "../../assets/images/yellowDress.png";
 const TopSales = () => {
+    const { products, product } = useSelector((state) => state.products);
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+    useEffect(() => {
+        dispatch(getProducts(products));
+    }, []);
+    const recommendedProducts = products.filter(
+        ({ _id }) => _id !== product._id
+    );
+    const openProduct = (_id) => history.push(`/products/${_id}`);
     const settings = {
         infinite: true,
         slidesToShow: 5,
@@ -42,141 +56,41 @@ const TopSales = () => {
         <div className={classes.main_card_wrap}>
             <h1>Похожие товары</h1>
             <Slider {...settings}>
-                <div className={classes.inner_card}>
-                    <div className={classes.inner_card__img_frame}>
-                        <img src={dress} alt="card_image" />
-                    </div>
-                    <div className={classes.price_box}>
-                        <span className={classes.prevPrice}>12000 c.</span>
-                        <span className={classes.currentPrice}>12000 c.</span>
-                        <span className={classes.discount}>35%</span>
-                    </div>
-                    <div className={classes.product_description}>
-                        <div className={classes.description_text}>
-                            <span>The Organic Cotton Clothes</span>
-                        </div>
+                {recommendedProducts.map(
+                    ({ selectedFiles, title, size, price, _id }) => (
+                        <div
+                            className={classes.inner_card}
+                            onClick={() => openProduct(_id)}
+                            key={_id}
+                        >
+                            <div className={classes.inner_card__img_frame}>
+                                <img src={selectedFiles} alt={title} />
+                            </div>
+                            <div className={classes.price_box}>
+                                <span className={classes.currentPrice}>
+                                    {price}
+                                </span>
+                            </div>
+                            <div className={classes.product_description}>
+                                <div className={classes.description_text}>
+                                    <span>{title}</span>
+                                </div>
 
-                        <div className={classes.size_description}>
-                            <span>Размер 46-54</span>
+                                <div className={classes.size_description}>
+                                    <span>{size}</span>
+                                </div>
+                            </div>
+                            <button className={classes.btn}>
+                                {" "}
+                                Заказать{" "}
+                                <i
+                                    className="fa fa-shopping-cart"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
                         </div>
-                    </div>
-                    <button className={classes.btn}>
-                        {" "}
-                        Заказать{" "}
-                        <i
-                            className="fa fa-shopping-cart"
-                            aria-hidden="true"
-                        ></i>
-                    </button>
-                </div>
-                <div className={classes.inner_card}>
-                    <div className={classes.inner_card__img_frame}>
-                        <img src={dress} alt="card_image" />
-                    </div>
-                    <div className={classes.price_box}>
-                        <span className={classes.prevPrice}>12000 c.</span>
-                        <span className={classes.currentPrice}>12000 c.</span>
-                        <span className={classes.discount}>35%</span>
-                    </div>
-                    <div className={classes.product_description}>
-                        <div className={classes.description_text}>
-                            <span>The Organic Cotton Clothes</span>
-                        </div>
-
-                        <div className={classes.size_description}>
-                            <span>Размер 46-54</span>
-                        </div>
-                    </div>
-                    <button className={classes.btn}>
-                        {" "}
-                        Заказать{" "}
-                        <i
-                            className="fa fa-shopping-cart"
-                            aria-hidden="true"
-                        ></i>
-                    </button>
-                </div>
-                <div className={classes.inner_card}>
-                    <div className={classes.inner_card__img_frame}>
-                        <img src={dress} alt="card_image" />
-                    </div>
-                    <div className={classes.price_box}>
-                        <span className={classes.prevPrice}>12000 c.</span>
-                        <span className={classes.currentPrice}>12000 c.</span>
-                        <span className={classes.discount}>35%</span>
-                    </div>
-                    <div className={classes.product_description}>
-                        <div className={classes.description_text}>
-                            <span>The Organic Cotton Clothes</span>
-                        </div>
-
-                        <div className={classes.size_description}>
-                            <span>Размер 46-54</span>
-                        </div>
-                    </div>
-                    <button className={classes.btn}>
-                        {" "}
-                        Заказать{" "}
-                        <i
-                            className="fa fa-shopping-cart"
-                            aria-hidden="true"
-                        ></i>
-                    </button>
-                </div>
-                <div className={classes.inner_card}>
-                    <div className={classes.inner_card__img_frame}>
-                        <img src={dress} alt="card_image" />
-                    </div>
-                    <div className={classes.price_box}>
-                        <span className={classes.prevPrice}>12000 c.</span>
-                        <span className={classes.currentPrice}>12000 c.</span>
-                        <span className={classes.discount}>35%</span>
-                    </div>
-                    <div className={classes.product_description}>
-                        <div className={classes.description_text}>
-                            <span>The Organic Cotton Clothes</span>
-                        </div>
-
-                        <div className={classes.size_description}>
-                            <span>Размер 46-54</span>
-                        </div>
-                    </div>
-                    <button className={classes.btn}>
-                        {" "}
-                        Заказать{" "}
-                        <i
-                            className="fa fa-shopping-cart"
-                            aria-hidden="true"
-                        ></i>
-                    </button>
-                </div>
-                <div className={classes.inner_card}>
-                    <div className={classes.inner_card__img_frame}>
-                        <img src={dress} alt="card_image" />
-                    </div>
-                    <div className={classes.price_box}>
-                        <span className={classes.prevPrice}>12000 c.</span>
-                        <span className={classes.currentPrice}>12000 c.</span>
-                        <span className={classes.discount}>35%</span>
-                    </div>
-                    <div className={classes.product_description}>
-                        <div className={classes.description_text}>
-                            <span>The Organic Cotton Clothes</span>
-                        </div>
-
-                        <div className={classes.size_description}>
-                            <span>Размер 46-54</span>
-                        </div>
-                    </div>
-                    <button className={classes.btn}>
-                        {" "}
-                        Заказать{" "}
-                        <i
-                            className="fa fa-shopping-cart"
-                            aria-hidden="true"
-                        ></i>
-                    </button>
-                </div>
+                    )
+                )}
             </Slider>
         </div>
     );

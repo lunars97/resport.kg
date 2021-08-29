@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import classes from "./Product_Card.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { getProduct, getProducts } from "../../actions/products";
+import { getProducts } from "../../actions/products";
 import { useHistory } from "react-router-dom";
 const ProductCard = () => {
     const { products, product } = useSelector((state) => state.products);
@@ -10,21 +10,18 @@ const ProductCard = () => {
     const history = useHistory();
     useEffect(() => {
         dispatch(getProducts(products));
-        dispatch(getProduct(product));
     }, []);
-    const openProduct = (e) => {
-        history.push(`/products/${product._id}`);
-    };
+    // useEffect(() => {
+    //     dispatch(getProduct(product));
+    // }, []);
+    const openProduct = (e) => history.push(`products/${product._id}`);
+
     return (
-        <>
+        <div>
             <h1>Все товары</h1>
-            {products?.map((product) => (
-                <div
-                    className={classes.main_card_wrap}
-                    id={"products"}
-                    key={product._id}
-                >
-                    <div className={classes.inner_card} onClick={openProduct}>
+            <div className={classes.main_card_wrap} id={"products"}>
+                {products?.map((product) => (
+                    <div key={product._id} className={classes.inner_card}>
                         <div className={classes.inner_card__img_frame}>
                             <img
                                 src={product.selectedFile}
@@ -45,17 +42,13 @@ const ProductCard = () => {
                                 <span>{product.size}</span>
                             </div>
                         </div>
-                        <button className={classes.btn}>
-                            Заказать{" "}
-                            <i
-                                className="fa fa-shopping-cart"
-                                aria-hidden="true"
-                            ></i>
+                        <button onClick={openProduct} className={classes.btn}>
+                            Детали товара
                         </button>
                     </div>
-                </div>
-            ))}
-        </>
+                ))}
+            </div>
+        </div>
     );
 };
 

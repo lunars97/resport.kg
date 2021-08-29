@@ -14,11 +14,11 @@ API.interceptors.request.use((req) => {
 
 export const fetchProduct = (id) =>
     API.get(`/admin/${id}` && `/products/${id}`);
-export const fetchProducts = (page) => API.get(`/admin` && `/products`);
+export const fetchProducts = (page) => API.get(`/products?page=${page}`);
 export const fetchProductsBySearch = (searchQuery) =>
     axios.get(`/products/search?searchQuery=${searchQuery.search || "none"}`);
-export const createProduct = (newProduct) => API.post(`/admin`, newProduct);
-
+export const createProduct = (newProduct) =>
+    API.post(`/admin` && "/products", newProduct);
 export const updateProduct = (id, updatedProduct) =>
     API.patch(`/admin/${id}`, updatedProduct);
 export const deleteProduct = (id) => {
