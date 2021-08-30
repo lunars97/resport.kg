@@ -1,22 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import { getProducts } from "../../actions/products";
 import Slider from "react-slick";
 import classes from "./TopSales.module.scss";
-import dress from "../../assets/images/yellowDress.png";
 const TopSales = () => {
     const { products, product } = useSelector((state) => state.products);
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     useEffect(() => {
         dispatch(getProducts(products));
     }, []);
     const recommendedProducts = products.filter(
         ({ _id }) => _id !== product._id
     );
-    const openProduct = (_id) => history.push(`/products/${_id}`);
+    // const openProduct = (_id) => history.push(`/products/${_id}`);
     const settings = {
         infinite: true,
         slidesToShow: 5,
@@ -58,37 +57,35 @@ const TopSales = () => {
             <Slider {...settings}>
                 {recommendedProducts.map(
                     ({ selectedFiles, title, size, price, _id }) => (
-                        <div
-                            className={classes.inner_card}
-                            onClick={() => openProduct(_id)}
-                            key={_id}
-                        >
-                            <div className={classes.inner_card__img_frame}>
-                                <img src={selectedFiles} alt={title} />
-                            </div>
-                            <div className={classes.price_box}>
-                                <span className={classes.currentPrice}>
-                                    {price}
-                                </span>
-                            </div>
-                            <div className={classes.product_description}>
-                                <div className={classes.description_text}>
-                                    <span>{title}</span>
+                        <Link to={`/products/${_id}`}>
+                            <div className={classes.inner_card} key={_id}>
+                                <div className={classes.inner_card__img_frame}>
+                                    <img src={selectedFiles} alt={title} />
                                 </div>
+                                <div className={classes.price_box}>
+                                    <span className={classes.currentPrice}>
+                                        {price}
+                                    </span>
+                                </div>
+                                <div className={classes.product_description}>
+                                    <div className={classes.description_text}>
+                                        <span>{title}</span>
+                                    </div>
 
-                                <div className={classes.size_description}>
-                                    <span>{size}</span>
+                                    <div className={classes.size_description}>
+                                        <span>{size}</span>
+                                    </div>
                                 </div>
+                                <button className={classes.btn}>
+                                    {" "}
+                                    Заказать{" "}
+                                    <i
+                                        className="fa fa-shopping-cart"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
                             </div>
-                            <button className={classes.btn}>
-                                {" "}
-                                Заказать{" "}
-                                <i
-                                    className="fa fa-shopping-cart"
-                                    aria-hidden="true"
-                                ></i>
-                            </button>
-                        </div>
+                        </Link>
                     )
                 )}
             </Slider>

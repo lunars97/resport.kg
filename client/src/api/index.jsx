@@ -14,7 +14,8 @@ API.interceptors.request.use((req) => {
 
 export const fetchProduct = (id) =>
     API.get(`/admin/${id}` && `/products/${id}`);
-export const fetchProducts = (page) => API.get(`/products?page=${page}`);
+export const fetchProducts = (page) =>
+    API.get(`/admin?page=${page}` && `/products?page=${page}`);
 export const fetchProductsBySearch = (searchQuery) =>
     axios.get(`/products/search?searchQuery=${searchQuery.search || "none"}`);
 export const createProduct = (newProduct) =>

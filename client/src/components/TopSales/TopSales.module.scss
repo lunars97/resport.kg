@@ -8,7 +8,7 @@
     h1 {
         text-align: center;
         font-family: $fontFamily;
-        font-size: 24px;
+        font-size: 22px;
     }
     @include breakpoint(large) {
         width: 90%;

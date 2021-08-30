@@ -7,6 +7,7 @@ import { createProduct, updateProduct } from "../../actions/products";
 import decode from "jwt-decode";
 import * as actionTypes from "../../constants/actionTypes";
 import { TableInfo, ProductCard } from "../index";
+import AdminPage from "../abstracts/AdminPage/AdminPage";
 
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0);
@@ -15,7 +16,7 @@ const Admin = () => {
     );
     const [postProduct, setPostProduct] = useState({
         title: "",
-        selectedFile: [],
+        selectedFile: "",
         article: "",
         color: "",
         size: "",
@@ -58,7 +59,7 @@ const Admin = () => {
         setCurrentId(0);
         setPostProduct({
             title: "",
-            selectedFile: [],
+            selectedFile: "",
             article: "",
             color: "",
             size: "",
@@ -236,7 +237,7 @@ const Admin = () => {
                 setCurrentId={setCurrentId}
                 product={product}
             />
-
+            <AdminPage />
             <div className={classes.none}>
                 <ProductCard product={product} />
             </div>
