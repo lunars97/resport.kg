@@ -14,7 +14,7 @@ const ProductDetail = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProduct(id));
-    }, [id, dispatch]);
+    }, [id]);
 
     if (!product) return null;
     const settings = {
@@ -45,26 +45,26 @@ const ProductDetail = () => {
                         <div className={classes.img_wrapper}>
                             <div className={classes.main_img_container}>
                                 <img
-                                    src={product.selectedFiles}
+                                    src={product.selectedFile}
                                     alt={product.title}
                                 />
                             </div>
                             <div className={classes.small_img_wrapper}>
                                 <div className={classes.small_img_container}>
                                     <img
-                                        src={product.selectedFiles}
+                                        src={product.selectedFile}
                                         alt={product.title}
                                     />
                                 </div>
                                 <div className={classes.small_img_container}>
                                     <img
-                                        src={product.selectedFiles}
+                                        src={product.selectedFile}
                                         alt={product.title}
                                     />
                                 </div>
                                 <div className={classes.small_img_container}>
                                     <img
-                                        src={product.selectedFiles}
+                                        src={product.selectedFile}
                                         alt={product.title}
                                     />
                                 </div>
@@ -105,9 +105,11 @@ const ProductDetail = () => {
                                 </div>
                             </div>
                             <span>Описание товара</span>
-                            <p className={classes.description_text}>
-                                {product.description}
-                            </p>
+                            <div className={classes.main_desc_wrap}>
+                                <div className={classes.description_box}>
+                                    <p>{product.description}</p>
+                                </div>
+                            </div>
                             <p className={classes.manufactured}>
                                 Cтрана производитель: {product.manufactured}
                             </p>
@@ -130,7 +132,9 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-            {!!recommendedProducts.length && <TopSales />}
+            <div className={classes.slider_wrapper}>
+                {!!recommendedProducts.length && <TopSales />}
+            </div>
             <ModalWindow modal={modal} setModal={setModal} />
         </div>
     );

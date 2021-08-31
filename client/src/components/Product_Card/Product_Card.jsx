@@ -25,23 +25,32 @@ const ProductCard = () => {
                         </div>
                         <div className={classes.price_box}>
                             <span className={classes.currentPrice}>
-                                {product.price}
+                                {product.price} сом
                             </span>
                         </div>
                         <div className={classes.product_description}>
                             <div className={classes.description_text}>
                                 <span>{product.title}</span>
+                                <p>
+                                    {product.description
+                                        .split(" ")
+                                        .splice(0, 20)
+                                        .join(" ")}
+                                    ...
+                                </p>
                             </div>
 
                             <div className={classes.size_description}>
-                                <span>{product.size}</span>
+                                <span>размер: {product.size}</span>
                             </div>
                         </div>
-                        <Link to={`products/${product._id}`}>
-                            <button className={classes.btn}>
-                                Детали товара
-                            </button>
-                        </Link>
+                        <div className={classes.btn_wrapper}>
+                            <Link to={`products/${product._id}`}>
+                                <button className={classes.btn}>
+                                    Детали товара
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 ))}
             </div>
