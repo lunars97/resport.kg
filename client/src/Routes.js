@@ -29,6 +29,7 @@ const Routes = () => {
                     component={() => <Redirect to="/products" />}
                 />
                 <Route exact path="/products" component={BodySection} />
+                <Route exact path="/products/search" component={BodySection} />
                 <Route exact path="/products/:id" component={ProductDetail} />
                 <Route exact path="/signin" component={SignIn} />
                 <Route exact path="/signup" component={SignUp} />

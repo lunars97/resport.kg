@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 import logo from "../../assets/images/logo.jpg";
+import { useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
+import { getProductsBySearch } from "../../actions/products";
+import { PageBtn } from "../abstracts";
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 const Navbar = () => {
+    const query = useQuery();
+    const searchQuery = query.get("searchQuery");
+    const page = query.get("page") || 1;
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const [search, setSearch] = useState("");
+    const searchProduct = () => {
+        if (search.trim()) {
+            dispatch(getProductsBySearch({ search }));
+            history.push(`/products/search?searchQuery=${search || "none"}`);
+        } else {
+            history.push("/");
+        }
+    };
+    const handleKeyPress = (e) => {
+        if (e.keyCode === 13) {
+            searchProduct();
+        }
+    };
     return (
         <>
             <div className={classes.header}>
@@ -89,9 +116,15 @@ const Navbar = () => {
                                             ></i>
                                         </button>
                                         <input
+                                            onKeyDown={handleKeyPress}
+                                            name="search"
                                             type="text"
                                             className={classes.input_search}
                                             placeholder="Type to Search..."
+                                            value={search}
+                                            onChange={(e) =>
+                                                setSearch(e.target.value)
+                                            }
                                         />
                                     </div>
                                 </li>
@@ -104,6 +137,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={classes.page}>
+                {!searchQuery && <PageBtn page={page} />}
             </div>
         </>
     );

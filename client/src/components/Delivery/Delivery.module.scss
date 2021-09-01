@@ -24,21 +24,20 @@
         }
         @include breakpoint(medium) {
             width: 100%;
-            margin: 0 1rem;
         }
         img {
             width: 40rem;
             border-radius: 1rem;
 
-            @media screen and (max-width: 500px) {
+            @include breakpoint(small) {
                 width: 100%;
             }
 
             @include breakpoint(medium) {
-                width: 20rem;
+                width: 15rem;
             }
             @include breakpoint(large) {
-                width: 20rem;
+                width: 18rem;
             }
         }
         p {

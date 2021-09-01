@@ -31,11 +31,8 @@ export const getProductsBySearch = async (req, res) => {
 
     try {
         const title = new RegExp(searchQuery, "i");
-        const price = new RegExp(searchQuery, "i");
-        const color = new RegExp(searchQuery, "i");
-        const category = new RegExp(searchQuery, "i");
         const products = await AddProduct.find({
-            $or: [{ title, price, color, category }],
+            $or: [{ title }],
         });
 
         res.json({ data: products });
