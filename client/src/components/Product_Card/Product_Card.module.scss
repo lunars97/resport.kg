@@ -23,10 +23,10 @@ h1 {
     font-size: 24px;
 }
 .inner_card {
-    width: 14rem;
-    margin: 1.3rem 0;
+    width: 15rem;
+    margin: 1rem 1rem;
     cursor: pointer;
-    height: 18rem;
+    height: 22rem;
 
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -34,12 +34,16 @@ h1 {
     border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
     &__img_frame {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
         img {
-            width: 80%;
+            width: 12rem;
+            height: 8rem;
         }
     }
     @media screen and (max-width: 500px) {
-        width: 10.5rem;
+        // width: 10.5rem;
     }
     .price_box {
         display: flex;
@@ -58,32 +62,33 @@ h1 {
     }
 
     .product_description {
-        width: 12rem;
+        width: 14rem;
         font-size: 11.5px;
-        height: 12rem;
         padding-left: 10px;
         .description_text span {
-            font-size: $cardFont;
-            font-weight: bold;
-            line-height: 22px;
+            font-weight: 600;
         }
     }
+    .btn_wrapper {
+        margin: 0.5rem 0;
 
-    .btn {
-        width: 11.5rem;
-        margin-left: 15px;
-        @include buttonStyle;
+        .btn {
+            width: 11.5rem;
+            margin-left: 1.5rem;
 
-        &:hover {
-            color: black;
-        }
+            @include buttonStyle;
 
-        @include breakpoint(small) {
-            width: 8.5rem;
-        }
+            &:hover {
+                color: black;
+            }
 
-        @include breakpoint(medium) {
-            width: 8.5rem;
+            @include breakpoint(small) {
+                width: 8.5rem;
+            }
+
+            @include breakpoint(medium) {
+                width: 8.5rem;
+            }
         }
     }
 }

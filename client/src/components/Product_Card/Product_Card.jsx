@@ -19,7 +19,7 @@ const ProductCard = () => {
                     <div key={product._id} className={classes.inner_card}>
                         <div className={classes.inner_card__img_frame}>
                             <img
-                                src={product.selectedFile}
+                                src={product.selectedFile[0]}
                                 alt={product.title}
                             />
                         </div>
@@ -30,7 +30,12 @@ const ProductCard = () => {
                         </div>
                         <div className={classes.product_description}>
                             <div className={classes.description_text}>
-                                <span>{product.title}</span>
+                                <span>
+                                    {product.title
+                                        .split(" ")
+                                        .splice(0, 4)
+                                        .join(" ")}
+                                </span>
                                 <p>
                                     {product.description
                                         .split(" ")

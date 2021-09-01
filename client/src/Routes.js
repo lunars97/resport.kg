@@ -18,6 +18,7 @@ import {
 
 const Routes = () => {
     const user = JSON.parse(localStorage.getItem("profile"));
+
     return (
         <Router>
             <Navbar />

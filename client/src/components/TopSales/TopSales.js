@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { getProducts } from "../../actions/products";
 import Slider from "react-slick";
 import classes from "./TopSales.module.scss";
-
 const TopSales = () => {
     const { products, product } = useSelector((state) => state.products);
     const dispatch = useDispatch();
@@ -15,13 +14,17 @@ const TopSales = () => {
         ({ _id }) => _id !== product._id
     );
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 2000,
+        dots: false,
+
+        infinite: false,
+
         slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 0,
-
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
         responsive: [
             {
                 breakpoint: 1200,
@@ -56,7 +59,7 @@ const TopSales = () => {
                         {/* <div className={classes.slider_wrapper}> */}
                         {recommendedProducts.map(
                             ({
-                                selectedFiles,
+                                selectedFile,
                                 title,
                                 description,
                                 size,
@@ -69,11 +72,14 @@ const TopSales = () => {
                                             classes.inner_card__img_frame
                                         }
                                     >
-                                        <img src={selectedFiles} alt={title} />
+                                        <img
+                                            src={selectedFile[0]}
+                                            alt={title}
+                                        />
                                     </div>
                                     <div className={classes.price_box}>
                                         <span className={classes.currentPrice}>
-                                            {price}
+                                            {price} сом
                                         </span>
                                     </div>
                                     <div
@@ -82,7 +88,12 @@ const TopSales = () => {
                                         <div
                                             className={classes.description_text}
                                         >
-                                            <span>{title}</span>
+                                            <span>
+                                                {title
+                                                    .split(" ")
+                                                    .splice(0, 4)
+                                                    .join(" ")}
+                                            </span>
                                             <p>
                                                 {description
                                                     .split(" ")
@@ -98,16 +109,18 @@ const TopSales = () => {
                                             <span>размер: {size}</span>
                                         </div>
                                     </div>
-                                    <Link to={`/products/${_id}`}>
-                                        <button className={classes.btn}>
-                                            {" "}
-                                            Детали{" "}
-                                            <i
-                                                className="fa fa-shopping-cart"
-                                                aria-hidden="true"
-                                            ></i>
-                                        </button>
-                                    </Link>
+                                    <div className={classes.btn_wrap}>
+                                        <Link to={`/products/${_id}`}>
+                                            <button className={classes.btn}>
+                                                {" "}
+                                                Детали{" "}
+                                                <i
+                                                    className="fa fa-shopping-cart"
+                                                    aria-hidden="true"
+                                                ></i>
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
                             )
                         )}

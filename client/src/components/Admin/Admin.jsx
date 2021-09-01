@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Admin.module.scss";
-import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createProduct, updateProduct } from "../../actions/products";
@@ -14,9 +13,10 @@ const Admin = () => {
     const [loggedUser, setLoggedUser] = useState(
         JSON.parse(localStorage.getItem("profile"))
     );
+
     const [postProduct, setPostProduct] = useState({
         title: "",
-        selectedFile: "",
+        selectedFile: [],
         article: "",
         color: "",
         size: "",
@@ -59,7 +59,7 @@ const Admin = () => {
         setCurrentId(0);
         setPostProduct({
             title: "",
-            selectedFile: "",
+            selectedFile: [],
             article: "",
             color: "",
             size: "",
@@ -107,18 +107,20 @@ const Admin = () => {
                         className={classes.form}
                         onSubmit={handleSubmit}
                     >
-                        <div>
-                            <FileBase
-                                type="file"
-                                multiple={true}
-                                onDone={({ base64 }) =>
-                                    setPostProduct({
-                                        ...postProduct,
-                                        selectedFile: base64,
-                                    })
-                                }
-                            />
-                        </div>
+                        {console.log(postProduct.selectedFile[0])}
+                        <input
+                            name="selectedFile"
+                            type="file"
+                            multiple={true}
+                            accept=".jpeg, .png, .jpg"
+                            onChange={(e) => {
+                                setPostProduct({
+                                    ...postProduct,
+                                    selectedFile: e.target.files,
+                                });
+                            }}
+                        />
+
                         <input
                             name="title"
                             value={postProduct.title}

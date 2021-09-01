@@ -18,13 +18,13 @@ const ProductDetail = () => {
 
     if (!product) return null;
     const settings = {
-        customPaging: function (i) {
-            return (
-                <a href="/">
-                    <img className={classes.img} src={dress} alt="dress" />
-                </a>
-            );
-        },
+        // customPaging: function (i) {
+        //     return (
+        //         <a href="/">
+        //             <img className={classes.img}  src={product.selectedFile} alt="dress" />
+        //         </a>
+        //     );
+        // },
         dots: true,
         fade: true,
         dotsClass: "slick-dots slick-thumb",
@@ -45,26 +45,26 @@ const ProductDetail = () => {
                         <div className={classes.img_wrapper}>
                             <div className={classes.main_img_container}>
                                 <img
-                                    src={product.selectedFile}
+                                    src={product.selectedFile[0]}
                                     alt={product.title}
                                 />
                             </div>
                             <div className={classes.small_img_wrapper}>
                                 <div className={classes.small_img_container}>
                                     <img
-                                        src={product.selectedFile}
+                                        src={product.selectedFile[0]}
                                         alt={product.title}
                                     />
                                 </div>
                                 <div className={classes.small_img_container}>
                                     <img
-                                        src={product.selectedFile}
+                                        src={product.selectedFile[0]}
                                         alt={product.title}
                                     />
                                 </div>
                                 <div className={classes.small_img_container}>
                                     <img
-                                        src={product.selectedFile}
+                                        src={product.selectedFile[0]}
                                         alt={product.title}
                                     />
                                 </div>
