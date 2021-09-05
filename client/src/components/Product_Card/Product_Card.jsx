@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import classes from "./Product_Card.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, getProduct } from "../../actions/products";
+import {
+    getProducts,
+    getProduct,
+    getProductsBySearch,
+} from "../../actions/products";
 import { Link } from "react-router-dom";
 const ProductCard = () => {
     const { products, product } = useSelector((state) => state.products);
@@ -19,7 +23,7 @@ const ProductCard = () => {
                     <div key={product._id} className={classes.inner_card}>
                         <div className={classes.inner_card__img_frame}>
                             <img
-                                src={product.selectedFile[0]}
+                                src={product.selectedFile}
                                 alt={product.title}
                             />
                         </div>

@@ -17,7 +17,7 @@ export const fetchProduct = (id) =>
 export const fetchProducts = (page) =>
     API.get(`/admin?page=${page}` && `/products?page=${page}`);
 export const fetchProductsBySearch = (searchQuery) =>
-    API.get(`/products/search?searchQuery=${searchQuery.search || "none"}`);
+    API.get(`products/search?searchQuery=${searchQuery.search || "none"}`);
 export const createProduct = (newProduct) =>
     API.post(`/admin` && "/products", newProduct);
 export const updateProduct = (id, updatedProduct) =>

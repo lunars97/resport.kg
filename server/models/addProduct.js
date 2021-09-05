@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
     title: String,
-    selectedFile: [{ type: String }],
+    selectedFile: { type: String },
     article: String,
     color: String,
     size: String,

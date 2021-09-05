@@ -19,7 +19,6 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                         <th>Размер</th>
                         <th>Цвет</th>
                         <th>Цена</th>
-
                         <th>Категория</th>
                         <th>Описание</th>
                         <th></th>
@@ -31,10 +30,9 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                             <td>
                                 <img
                                     className={classes.img}
-                                    src={product.selectedFile[0]}
+                                    src={product.selectedFile}
                                     alt={product.title}
                                 />
-                                {console.log(product.selectedFile[0])}
                             </td>
                             <td className={classes.title}>{product.title}</td>
                             <td>{product.article}</td>

@@ -16,7 +16,7 @@ const Admin = () => {
 
     const [postProduct, setPostProduct] = useState({
         title: "",
-        selectedFile: [],
+        selectedFile: "",
         article: "",
         color: "",
         size: "",
@@ -59,7 +59,8 @@ const Admin = () => {
         setCurrentId(0);
         setPostProduct({
             title: "",
-            selectedFile: [],
+            selectedFile: "",
+
             article: "",
             color: "",
             size: "",
@@ -107,16 +108,15 @@ const Admin = () => {
                         className={classes.form}
                         onSubmit={handleSubmit}
                     >
-                        {console.log(postProduct.selectedFile[0])}
                         <input
                             name="selectedFile"
-                            type="file"
-                            multiple={true}
-                            accept=".jpeg, .png, .jpg"
+                            placeholder="Изображение 1"
+                            value={postProduct.selectedFile}
+                            type="text"
                             onChange={(e) => {
                                 setPostProduct({
                                     ...postProduct,
-                                    selectedFile: e.target.files,
+                                    selectedFile: e.target.value,
                                 });
                             }}
                         />

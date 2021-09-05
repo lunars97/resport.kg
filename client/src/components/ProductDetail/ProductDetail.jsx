@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import dress from "../../assets/images/yellowDress.png";
 import classes from "./ProductDetail.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../actions/products";
+import { getProductsBySearch } from "../../actions/products";
 import TopSales from "../TopSales/TopSales";
 import ModalWindow from "../abstracts/ModalWindow/ModalWindow";
 const ProductDetail = () => {
@@ -45,11 +45,11 @@ const ProductDetail = () => {
                         <div className={classes.img_wrapper}>
                             <div className={classes.main_img_container}>
                                 <img
-                                    src={product.selectedFile[0]}
+                                    src={product.selectedFile}
                                     alt={product.title}
                                 />
                             </div>
-                            <div className={classes.small_img_wrapper}>
+                            {/* <div className={classes.small_img_wrapper}>
                                 <div className={classes.small_img_container}>
                                     <img
                                         src={product.selectedFile[0]}
@@ -68,7 +68,7 @@ const ProductDetail = () => {
                                         alt={product.title}
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </Slider>
                     <div className={classes.description}>

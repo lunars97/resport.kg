@@ -14,9 +14,9 @@ const Navbar = () => {
     const searchQuery = query.get("searchQuery");
     const page = query.get("page") || 1;
     const dispatch = useDispatch();
+    const [search, setSearch] = useState("");
     const history = useHistory();
 
-    const [search, setSearch] = useState("");
     const searchProduct = () => {
         if (search.trim()) {
             dispatch(getProductsBySearch({ search }));
@@ -120,12 +120,15 @@ const Navbar = () => {
                                             name="search"
                                             type="text"
                                             className={classes.input_search}
-                                            placeholder="Type to Search..."
+                                            placeholder=" Поиск"
                                             value={search}
                                             onChange={(e) =>
                                                 setSearch(e.target.value)
                                             }
                                         />
+                                        <button onClick={searchProduct}>
+                                            Поиск
+                                        </button>
                                     </div>
                                 </li>
                             </ul>

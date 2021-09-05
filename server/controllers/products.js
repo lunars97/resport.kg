@@ -8,7 +8,7 @@ export const getProducts = async (req, res) => {
     const { page } = req.query;
 
     try {
-        const LIMIT = 12;
+        const LIMIT = 8;
         const startIndex = (Number(page) - 1) * LIMIT;
         const total = await AddProduct.countDocuments({});
         const products = await AddProduct.find()
@@ -28,12 +28,10 @@ export const getProducts = async (req, res) => {
 
 export const getProductsBySearch = async (req, res) => {
     const { searchQuery } = req.query;
-
+    console.log(req.query);
     try {
         const title = new RegExp(searchQuery, "i");
-        const products = await AddProduct.find({
-            $or: [{ title }],
-        });
+        const products = await AddProduct.find({ title });
 
         res.json({ data: products });
     } catch (error) {
