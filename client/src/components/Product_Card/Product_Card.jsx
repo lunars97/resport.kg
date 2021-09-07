@@ -43,7 +43,7 @@ const ProductCard = () => {
                                 <p>
                                     {product.description
                                         .split(" ")
-                                        .splice(0, 20)
+                                        .splice(0, 10)
                                         .join(" ")}
                                     ...
                                 </p>

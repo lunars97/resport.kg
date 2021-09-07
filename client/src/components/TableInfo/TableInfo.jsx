@@ -59,7 +59,7 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                                         dispatch(deleteProduct(product._id))
                                     }
                                 >
-                                    delete
+                                    ✖️
                                 </button>
                                 <button
                                     onClick={(e) => {
@@ -67,7 +67,7 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                                         setCurrentId(product._id);
                                     }}
                                 >
-                                    edit
+                                    🖊
                                 </button>
                             </td>
                         </tr>

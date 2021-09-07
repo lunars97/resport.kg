@@ -185,7 +185,7 @@ const Admin = () => {
                         <input
                             name="color"
                             value={postProduct.color}
-                            type="text"
+                            type="color"
                             placeholder="Цвет"
                             onChange={(e) =>
                                 setPostProduct({
@@ -230,7 +230,10 @@ const Admin = () => {
                                 })
                             }
                         />
-                        <button type="submit"> Добавить</button>
+                        <div className={classes.button_container}>
+                            <button type="submit"> Добавить</button>
+                            <button onClick={clear}>Очистить</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -36,25 +36,25 @@ h1 {
 
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(223, 245, 247, 0.75);
+    background-color: rgba(242, 249, 250, 0.75);
     border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
+    border: 1px solid rgba(237, 241, 247, 0.3);
     &__img_frame {
         margin-top: 1rem;
         display: flex;
         justify-content: center;
+        width: 15rem;
+        height: 10.5rem;
         img {
-            width: 13rem;
-            height: 8rem;
+            width: 100%;
         }
     }
-    @media screen and (max-width: 500px) {
-        width: 10.5rem;
-    }
+    // @media screen and (max-width: 500px) {
+    //     width: 14.5rem;
+    // }
     .price_box {
         display: flex;
         justify-content: flex-start;
-
         margin: 4px 0 0 15px;
         font-size: $cardFont;
 
@@ -62,8 +62,11 @@ h1 {
             color: #ab844a;
             font-weight: 700;
             margin-left: 15px;
-            @media screen and (max-width: 500px) {
-                margin-right: 5px;
+            @include breakpoint(medium) {
+                margin-left: 15px;
+            }
+            @include breakpoint(small) {
+                margin-right: 15px;
             }
         }
     }
@@ -82,9 +85,10 @@ h1 {
     }
     .btn_wrap {
         margin: 0.5rem 0;
+        display: flex;
+        justify-content: center;
         .btn {
-            width: 11.5rem;
-            margin-left: 1.5rem;
+            width: 14rem;
             @include buttonStyle;
 
             &:hover {
@@ -92,11 +96,11 @@ h1 {
             }
 
             @include breakpoint(small) {
-                width: 8.5rem;
+                width: 10.5rem;
             }
 
             @include breakpoint(medium) {
-                width: 8.5rem;
+                width: 14rem;
             }
         }
     }

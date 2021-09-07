@@ -160,6 +160,12 @@
                             }
                         }
                     }
+                    @include breakpoint(medium) {
+                        width: 20rem;
+                    }
+                    @include breakpoint(small) {
+                        width: 18rem;
+                    }
                 }
 
                 .manufactured {

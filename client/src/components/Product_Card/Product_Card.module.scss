@@ -5,7 +5,7 @@
     padding-top: 0.5rem;
     width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     @include fontTextStyle;
 
@@ -23,7 +23,7 @@ h1 {
     font-size: 24px;
 }
 .inner_card {
-    width: 15rem;
+    width: 15.5rem;
     margin: 1rem 1rem;
     cursor: pointer;
     height: 22rem;
@@ -36,10 +36,10 @@ h1 {
     &__img_frame {
         display: flex;
         justify-content: center;
-        margin-top: 1rem;
+        width: 15.5rem;
+        height: 10.5rem;
         img {
-            width: 12rem;
-            height: 8rem;
+            width: 100%;
         }
     }
     @media screen and (max-width: 500px) {
@@ -71,10 +71,10 @@ h1 {
     }
     .btn_wrapper {
         margin: 0.5rem 0;
-
+        display: flex;
+        justify-content: center;
         .btn {
-            width: 11.5rem;
-            margin-left: 1.5rem;
+            width: 13.5rem;
 
             @include buttonStyle;
 
@@ -83,11 +83,11 @@ h1 {
             }
 
             @include breakpoint(small) {
-                width: 8.5rem;
+                width: 10.5rem;
             }
 
             @include breakpoint(medium) {
-                width: 8.5rem;
+                width: 12.5rem;
             }
         }
     }

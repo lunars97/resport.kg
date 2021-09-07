@@ -4,17 +4,21 @@ import classes from "./Navbar.module.scss";
 import logo from "../../assets/images/logo.jpg";
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { getProductsBySearch } from "../../actions/products";
+import { getProductsBySearch, getProducts } from "../../actions/products";
 import { PageBtn } from "../abstracts";
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 const Navbar = () => {
     const query = useQuery();
+
     const searchQuery = query.get("searchQuery");
+    console.log(searchQuery);
     const page = query.get("page") || 1;
     const dispatch = useDispatch();
+
     const [search, setSearch] = useState("");
+    console.log(search);
     const history = useHistory();
 
     const searchProduct = () => {
@@ -67,7 +71,11 @@ const Navbar = () => {
                                         ></i>
                                     </Link>
                                     <ul className={classes.dropdown}>
-                                        <li className={classes.dropdown_link}>
+                                        <li
+                                            className={classes.dropdown_link}
+                                            name="men"
+                                            id="men"
+                                        >
                                             <Link
                                                 to="men"
                                                 style={{
@@ -80,7 +88,11 @@ const Navbar = () => {
                                                 Мужская одежда
                                             </Link>
                                         </li>
-                                        <li className={classes.dropdown_link}>
+                                        <li
+                                            className={classes.dropdown_link}
+                                            name="women"
+                                            id="women"
+                                        >
                                             <Link
                                                 to="women"
                                                 style={{
@@ -126,9 +138,6 @@ const Navbar = () => {
                                                 setSearch(e.target.value)
                                             }
                                         />
-                                        <button onClick={searchProduct}>
-                                            Поиск
-                                        </button>
                                     </div>
                                 </li>
                             </ul>

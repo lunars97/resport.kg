@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
+
 import classes from "./ProductDetail.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../actions/products";
-import { getProductsBySearch } from "../../actions/products";
 import TopSales from "../TopSales/TopSales";
 import ModalWindow from "../abstracts/ModalWindow/ModalWindow";
 const ProductDetail = () => {
@@ -17,22 +16,7 @@ const ProductDetail = () => {
     }, [id]);
 
     if (!product) return null;
-    const settings = {
-        // customPaging: function (i) {
-        //     return (
-        //         <a href="/">
-        //             <img className={classes.img}  src={product.selectedFile} alt="dress" />
-        //         </a>
-        //     );
-        // },
-        dots: true,
-        fade: true,
-        dotsClass: "slick-dots slick-thumb",
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
+
     const recommendedProducts = products.filter(
         ({ _id }) => _id !== product._id
     );
@@ -41,15 +25,14 @@ const ProductDetail = () => {
         <div className={classes.main_wrapper}>
             <div className={classes.detail_wrapper}>
                 <div className={classes.detail_wrapper__inner}>
-                    <Slider {...settings}>
-                        <div className={classes.img_wrapper}>
-                            <div className={classes.main_img_container}>
-                                <img
-                                    src={product.selectedFile}
-                                    alt={product.title}
-                                />
-                            </div>
-                            {/* <div className={classes.small_img_wrapper}>
+                    <div className={classes.img_wrapper}>
+                        <div className={classes.main_img_container}>
+                            <img
+                                src={product.selectedFile}
+                                alt={product.title}
+                            />
+                        </div>
+                        {/* <div className={classes.small_img_wrapper}>
                                 <div className={classes.small_img_container}>
                                     <img
                                         src={product.selectedFile[0]}
@@ -69,8 +52,8 @@ const ProductDetail = () => {
                                     />
                                 </div>
                             </div> */}
-                        </div>
-                    </Slider>
+                    </div>
+
                     <div className={classes.description}>
                         <div className={classes.description__inner}>
                             <span>{product.title}</span>

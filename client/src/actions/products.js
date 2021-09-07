@@ -39,6 +39,7 @@ export const getProducts = (page) => async (dispatch) => {
                 numberOfPages,
             },
         });
+
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
@@ -51,7 +52,9 @@ export const getProductsBySearch = (searchQuery) => async (dispatch) => {
         const {
             data: { data },
         } = await api.fetchProductsBySearch(searchQuery);
+
         dispatch({ type: FETCH_BY_SEARCH, payload: data });
+        console.log(data);
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
@@ -63,7 +66,6 @@ export const createProduct = (product, history) => async (dispatch) => {
         dispatch({ type: START_LOADING });
         const { data } = await api.createProduct(product);
         dispatch({ type: CREATE, payload: data });
-        // history.getProductsBySearch(`/products/${data._id}`);
     } catch (error) {
         console.log(error);
     }

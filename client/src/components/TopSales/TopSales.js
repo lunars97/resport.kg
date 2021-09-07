@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../actions/products";
-import Slider from "react-slick";
 import classes from "./TopSales.module.scss";
+import Carousel from "react-elastic-carousel";
 const TopSales = () => {
     const { products, product } = useSelector((state) => state.products);
     const dispatch = useDispatch();
@@ -13,50 +13,28 @@ const TopSales = () => {
     const recommendedProducts = products.filter(
         ({ _id }) => _id !== product._id
     );
-    const settings = {
-        dots: false,
-
-        infinite: false,
-
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 2000,
-        cssEase: "linear",
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 350,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+        { width: 850, itemsToShow: 3 },
+        { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
+        { width: 1450, itemsToShow: 5 },
+        { width: 1750, itemsToShow: 6 },
+    ];
     return (
         <>
             <h1>Похожие товары</h1>
             <div className={classes.main}>
                 <div className={classes.main_card_wrap}>
-                    <Slider {...settings}>
-                        {/* <div className={classes.slider_wrapper}> */}
+                    <Carousel
+                        focusOnSelect={true}
+                        itemsToShow={5}
+                        pagination={false}
+                        breakPoints={breakPoints}
+                        enableAutoPlay
+                        autoPlaySpeed={2500}
+                        showArrows={false}
+                    >
                         {recommendedProducts.map(
                             ({
                                 selectedFile,
@@ -91,13 +69,13 @@ const TopSales = () => {
                                             <span>
                                                 {title
                                                     .split(" ")
-                                                    .splice(0, 4)
+                                                    .splice(0, 3)
                                                     .join(" ")}
                                             </span>
                                             <p>
                                                 {description
                                                     .split(" ")
-                                                    .splice(0, 20)
+                                                    .splice(0, 10)
                                                     .join(" ")}
                                                 ...
                                             </p>
@@ -124,8 +102,8 @@ const TopSales = () => {
                                 </div>
                             )
                         )}
-                        {/* </div> */}
-                    </Slider>
+                    </Carousel>
+                    {/* </div> */}
                 </div>
             </div>
         </>
