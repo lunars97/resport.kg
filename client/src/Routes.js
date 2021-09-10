@@ -35,11 +35,11 @@ const Routes = () => {
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/admin" component={Admin} />
                 <Route
-                    path="/signup"
+                    path="/signin"
                     exact
                     component={() =>
                         !user ? (
-                            <SignUp />
+                            <SignIn />
                         ) : (
                             <Redirect to="/admin" component={Admin} />
                         )
