@@ -28,7 +28,6 @@ export const getProducts = async (req, res) => {
 
 export const getProductsBySearch = async (req, res) => {
     const { searchQuery } = req.query;
-    console.log(req.query);
     try {
         const title = new RegExp(searchQuery, "i");
         const products = await AddProduct.find({ title });

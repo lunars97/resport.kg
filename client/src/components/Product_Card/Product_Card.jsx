@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
 import classes from "./Product_Card.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import {
-    getProducts,
-    getProduct,
-    getProductsBySearch,
-} from "../../actions/products";
+import { getProducts, getProduct } from "../../actions/products";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 const ProductCard = () => {
     const { products, product } = useSelector((state) => state.products);
     const dispatch = useDispatch();
+    const history = useHistory();
     useEffect(() => {
         dispatch(getProducts(products));
         dispatch(getProduct(product));
     }, []);
+    // const recommendedProducts = products.filter(
+    //     ({ _id }) => _id !== product._id
+    // );
 
     return (
         <div>

@@ -1,25 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 import logo from "../../assets/images/logo.jpg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { getProductsBySearch, getProducts } from "../../actions/products";
+import {
+    getProductsBySearch,
+    getProducts,
+    getProduct,
+} from "../../actions/products";
 import { PageBtn } from "../abstracts";
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 const Navbar = () => {
+    const { products, product } = useSelector((state) => state.products);
     const query = useQuery();
-
     const searchQuery = query.get("searchQuery");
-    console.log(searchQuery);
+
     const page = query.get("page") || 1;
     const dispatch = useDispatch();
 
     const [search, setSearch] = useState("");
-    console.log(search);
     const history = useHistory();
+    useEffect(() => {
+        dispatch(getProducts(products));
+    }, []);
+
+    const womenFilter = (e) => {
+        e.preventDefault();
+        const women = products.filter(
+            (products) => products.category === "women"
+        );
+        console.log(women);
+        return women;
+    };
+
+    const menFilter = (e) => {
+        e.preventDefault();
+        const men = products.filter((products) => products.category === "men");
+        console.log(men);
+        return men;
+    };
 
     const searchProduct = () => {
         if (search.trim()) {
@@ -75,34 +97,17 @@ const Navbar = () => {
                                             className={classes.dropdown_link}
                                             name="men"
                                             id="men"
+                                            onClick={menFilter}
                                         >
-                                            <Link
-                                                to="men"
-                                                style={{
-                                                    color: "black",
-                                                    // padding: "0.5rem 1rem",
-                                                    fontSize: "0.9rem",
-                                                    textDecoration: "none",
-                                                }}
-                                            >
-                                                Мужская одежда
-                                            </Link>
+                                            Мужская
                                         </li>
                                         <li
                                             className={classes.dropdown_link}
                                             name="women"
                                             id="women"
+                                            onClick={womenFilter}
                                         >
-                                            <Link
-                                                to="women"
-                                                style={{
-                                                    color: "black",
-                                                    fontSize: "0.9rem",
-                                                    textDecoration: "none",
-                                                }}
-                                            >
-                                                Женская одежда
-                                            </Link>
+                                            Женская
                                         </li>
                                     </ul>
                                 </li>
