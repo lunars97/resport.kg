@@ -62,9 +62,9 @@ const ProductDetail = () => {
                                     classes.description__inner__first_section
                                 }
                             >
-                                <p>артикул: {product.article}</p>
+                                <p>bar code: {product.article}</p>
                                 <p className={classes.category}>
-                                    категория товара: {product.category}
+                                    category: {product.category}
                                 </p>
                             </div>
                             <div className={classes.description__inner_info}>
@@ -84,27 +84,27 @@ const ProductDetail = () => {
                                         classes.description__inner_info__size
                                     }
                                 >
-                                    <p>размер: {product.size}</p>
+                                    <p>size: {product.size}</p>
                                 </div>
                             </div>
-                            <span>Описание товара</span>
+                            <span>Description</span>
                             <div className={classes.main_desc_wrap}>
                                 <div className={classes.description_box}>
                                     <p>{product.description}</p>
                                 </div>
                             </div>
                             <p className={classes.manufactured}>
-                                Cтрана производитель: {product.manufactured}
+                                Manufacturer: {product.manufactured}
                             </p>
                             <p className={classes.manufactured}>
-                                Cостав: {product.makeup}
+                                Composition: {product.makeup}
                             </p>
                             <div>
                                 <button
                                     className={classes.btn}
                                     onClick={() => setModal((prev) => !prev)}
                                 >
-                                    Заказать{" "}
+                                    Order{" "}
                                     <i
                                         className="fa fa-shopping-cart"
                                         aria-hidden="true"

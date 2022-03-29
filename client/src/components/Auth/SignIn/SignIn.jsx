@@ -21,22 +21,22 @@ const SignIn = () => {
                 className={classes.mainContainer__form}
                 onSubmit={handleSubmit}
             >
-                <h3>Войти</h3>
+                <h3>Sign In</h3>
                 <input
                     className={classes.auth}
                     type="text"
-                    placeholder="Логин"
+                    placeholder="Login"
                     name="email"
                     onChange={handleChange}
                 />
                 <input
                     className={classes.auth}
                     type="text"
-                    placeholder="Пароль"
+                    placeholder="Password"
                     name="password"
                     onChange={handleChange}
                 />
-                <button type="submit">Войти</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
     );

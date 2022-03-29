@@ -73,7 +73,7 @@ const Navbar = () => {
                             <ul>
                                 <li className={classes.nav_link}>
                                     <Link className={classes.link} to="/">
-                                        Главная
+                                        Home
                                     </Link>
                                 </li>
                                 <li
@@ -86,7 +86,7 @@ const Navbar = () => {
                                         className={classes.link}
                                         to="/#products"
                                     >
-                                        Продукция
+                                        Products
                                         <i
                                             className="fa fa-caret-down"
                                             aria-hidden="true"
@@ -99,7 +99,7 @@ const Navbar = () => {
                                             id="men"
                                             onClick={menFilter}
                                         >
-                                            Мужская
+                                            Men
                                         </li>
                                         <li
                                             className={classes.dropdown_link}
@@ -107,7 +107,7 @@ const Navbar = () => {
                                             id="women"
                                             onClick={womenFilter}
                                         >
-                                            Женская
+                                            Women
                                         </li>
                                     </ul>
                                 </li>
@@ -121,7 +121,7 @@ const Navbar = () => {
                                         className={classes.link}
                                         to="/#contacts"
                                     >
-                                        Контакты
+                                        Contacts
                                     </Link>
                                 </li>
                                 <li>
@@ -137,7 +137,7 @@ const Navbar = () => {
                                             name="search"
                                             type="text"
                                             className={classes.input_search}
-                                            placeholder=" Поиск"
+                                            placeholder="Search..."
                                             value={search}
                                             onChange={(e) =>
                                                 setSearch(e.target.value)

@@ -249,7 +249,7 @@ ul {
     }
     .nav_btn {
         position: fixed;
-        /* height: calc(100vh - 3.5rem); */
+        height: calc(100vh - 3.5rem);
         top: 3.5rem;
         left: 0;
         width: 100%;
@@ -303,10 +303,12 @@ ul {
     .nav_link:hover > .dropdown,
     .dropdown_link:hover > .dropdown {
         display: block;
-        // margin-top: -30px;
+        // margin-top: 30px;
+        background-color: transparent;
+        color: rgb(61, 58, 58);
         float: right;
         @include breakpoint(medium) {
-            margin: 10px;
+            // padding: 10px;
         }
     }
 
@@ -318,11 +320,6 @@ ul {
         transform: rotate(3deg);
     }
 
-    .dropdown_link > {
-        background-color: cadetblue;
-
-        line-height: 1;
-    }
     .dropdown {
         display: none;
     }

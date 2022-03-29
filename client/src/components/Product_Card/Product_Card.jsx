@@ -18,7 +18,7 @@ const ProductCard = () => {
 
     return (
         <div>
-            <h1>Все товары</h1>
+            <h1>All Products</h1>
             <div className={classes.main_card_wrap} id={"products"}>
                 {products?.map((product) => (
                     <div key={product._id} className={classes.inner_card}>
@@ -30,7 +30,7 @@ const ProductCard = () => {
                         </div>
                         <div className={classes.price_box}>
                             <span className={classes.currentPrice}>
-                                {product.price} сом
+                                {product.price} som
                             </span>
                         </div>
                         <div className={classes.product_description}>
@@ -51,14 +51,12 @@ const ProductCard = () => {
                             </div>
 
                             <div className={classes.size_description}>
-                                <span>размер: {product.size}</span>
+                                <span>size: {product.size}</span>
                             </div>
                         </div>
                         <div className={classes.btn_wrapper}>
                             <Link to={`products/${product._id}`}>
-                                <button className={classes.btn}>
-                                    Детали товара
-                                </button>
+                                <button className={classes.btn}>Details</button>
                             </Link>
                         </div>
                     </div>

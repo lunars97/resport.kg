@@ -10,8 +10,8 @@ const Delivery = () => {
                     <p>Photo by sporlab on Unsplash</p>
                 </div>
                 <span>
-                    Бесплатная и быстрая доставка по городу всего за несколько
-                    минут 🚚📦
+                    Free and quick delivery of orders anywhere you want whenever
+                    you want🚚📦
                 </span>
             </div>
         </div>

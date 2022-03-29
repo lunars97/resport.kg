@@ -97,9 +97,9 @@ const Admin = () => {
         <>
             <div className={classes.main_formContainer}>
                 <div className={classes.main_formContainer__header}>
-                    <h3>Добро пожаловать,</h3>
+                    <h3>Welcome,</h3>
                     {user?.result && <span>{user?.result.name}</span>}
-                    <button onClick={logout}>Выйти</button>
+                    <button onClick={logout}>Sign Out</button>
                 </div>
                 <div className={classes.form_wrapper}>
                     <form
@@ -110,7 +110,7 @@ const Admin = () => {
                     >
                         <input
                             name="selectedFile"
-                            placeholder="Изображение 1"
+                            placeholder="Image"
                             value={postProduct.selectedFile}
                             type="text"
                             onChange={(e) => {
@@ -125,7 +125,7 @@ const Admin = () => {
                             name="title"
                             value={postProduct.title}
                             type="text"
-                            placeholder="Название товара"
+                            placeholder="Title"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -137,7 +137,7 @@ const Admin = () => {
                             name="price"
                             value={postProduct.price}
                             type="text"
-                            placeholder="Цена"
+                            placeholder="Price"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -149,7 +149,7 @@ const Admin = () => {
                             name="makeup"
                             value={postProduct.makeup}
                             type="text"
-                            placeholder="Состав"
+                            placeholder="Composition"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -162,7 +162,7 @@ const Admin = () => {
                             name="article"
                             value={postProduct.article}
                             type="text"
-                            placeholder="Артикул"
+                            placeholder="Bar code"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -174,7 +174,7 @@ const Admin = () => {
                             name="size"
                             value={postProduct.size}
                             type="text"
-                            placeholder="Размер"
+                            placeholder="Size"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -186,7 +186,7 @@ const Admin = () => {
                             name="color"
                             value={postProduct.color}
                             type="color"
-                            placeholder="Цвет"
+                            placeholder="Color"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -198,7 +198,7 @@ const Admin = () => {
                             name="manufactured"
                             type="text"
                             value={postProduct.manufactured}
-                            placeholder="Произведено"
+                            placeholder="Manufactured"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -210,7 +210,7 @@ const Admin = () => {
                             name="category"
                             type="text"
                             value={postProduct.category}
-                            placeholder="Категория"
+                            placeholder="Category"
                             onChange={(e) =>
                                 setPostProduct({
                                     ...postProduct,
@@ -219,7 +219,7 @@ const Admin = () => {
                             }
                         />
                         <textarea
-                            placeholder="Описание"
+                            placeholder="Description"
                             value={postProduct.description}
                             name="description"
                             className={classes.description}
@@ -231,8 +231,8 @@ const Admin = () => {
                             }
                         />
                         <div className={classes.button_container}>
-                            <button type="submit"> Добавить</button>
-                            <button onClick={clear}>Очистить</button>
+                            <button type="submit"> Add</button>
+                            <button onClick={clear}>Reset</button>
                         </div>
                     </form>
                 </div>

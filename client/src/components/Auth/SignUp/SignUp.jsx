@@ -23,36 +23,36 @@ const SignUp = () => {
                 className={classes.mainContainer__form}
                 onSubmit={handleSubmit}
             >
-                <h3>Зарегистрироваться</h3>
+                <h3>Sign Up</h3>
                 <div className={classes.mainContainer__form__firstCol}>
                     <input
                         type="text"
                         name="firstName"
-                        placeholder="Имя"
+                        placeholder="Name"
                         onChange={handleChange}
                     />
                     <input
                         type="text"
                         name="lastName"
-                        placeholder="Фамилия"
+                        placeholder="Surname"
                         onChange={handleChange}
                     />
                 </div>
                 <input
                     className={classes.auth}
                     type="email"
-                    placeholder="Логин"
+                    placeholder="Login"
                     name="email"
                     onChange={handleChange}
                 />
                 <input
                     className={classes.auth}
-                    placeholder="Пароль"
+                    placeholder="Password"
                     type="password"
                     name="password"
                     onChange={handleChange}
                 />
-                <button type="submit">Войти</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     );

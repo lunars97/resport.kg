@@ -13,14 +13,14 @@ const TableInfo = ({ setCurrentId, currentId }) => {
             <table>
                 <thead>
                     <tr>
-                        <th>Изображение</th>
-                        <th>Название</th>
-                        <th>Артикул</th>
-                        <th>Размер</th>
-                        <th>Цвет</th>
-                        <th>Цена</th>
-                        <th>Категория</th>
-                        <th>Описание</th>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Bar code</th>
+                        <th>Size</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Description</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -59,7 +59,7 @@ const TableInfo = ({ setCurrentId, currentId }) => {
                                         dispatch(deleteProduct(product._id))
                                     }
                                 >
-                                    ✖️
+                                    🗑
                                 </button>
                                 <button
                                     onClick={(e) => {

@@ -10,7 +10,7 @@ const Footer = () => {
                             classes.footer_wrapper__inner__contacts_header
                         }
                     >
-                        Контакты
+                        Contacts
                     </span>
                     <span>Дордой, начало цен.прохода(Алкан)</span>
                     <a href="tel:+996706287731">+996 706 287 731</a>
